@@ -195,7 +195,7 @@ export default function VestiaireScreen() {
   return (
     <View style={styles.container}>
       <MoroccanBackground />
-      <Text style={styles.title}>Vestiaire Kora Time</Text>
+      <Text style={styles.title}>Vestiaire Yallah Nl3bo</Text>
       <TextInput 
         style={styles.search} 
         placeholder="Chercher un joueur..." 
