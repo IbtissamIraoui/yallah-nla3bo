@@ -160,5 +160,5 @@ app.get('/api/dashboard', auth, async (req, res) => {
 app.get('/', (req, res) => res.send('KORA TIME BACKEND 100% OP'));
 
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`SERVEUR KORA TIME LANCÉ → http://192.168.3.156:${PORT}`);
+  console.log(`SERVEUR KORA TIME LANCÉ → http://100.79.104.91:${PORT}`);
 });
