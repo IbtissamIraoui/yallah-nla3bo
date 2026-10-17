@@ -25,6 +25,7 @@ const CITATIONS = [
 export default function HomeScreen({ navigation }) {
   const [caisse, setCaisse] = useState(0);
   const [prochainMatch, setProchainMatch] = useState(null);
+  const [matches, setMatches] = useState([]);
   const [loading, setLoading] = useState(false);
   const isFocused = useIsFocused();
   const [citation, setCitation] = useState("");
@@ -32,10 +33,23 @@ export default function HomeScreen({ navigation }) {
   const fetchDashboardData = async () => {
     setLoading(true);
     try {
-      const res = await client.get("/api/dashboard");
-      if (res.data.success) {
-        setCaisse(res.data.totalCaisse || 0);
-        setProchainMatch(res.data.prochainMatch);
+      const [dashboardRes, matchesRes] = await Promise.all([
+        client.get("/api/dashboard"),
+        client.get("/api/matches"),
+      ]);
+
+      if (dashboardRes.data.success) {
+        setCaisse(dashboardRes.data.totalCaisse || 0);
+        setProchainMatch(dashboardRes.data.prochainMatch);
+      }
+
+      if (matchesRes.data.success) {
+        const sortedMatches = [...(matchesRes.data.matches || [])].sort((a, b) => {
+          const dateA = a.date ? new Date(`${a.date}T${a.heure || "00:00"}`) : 0;
+          const dateB = b.date ? new Date(`${b.date}T${b.heure || "00:00"}`) : 0;
+          return dateB - dateA;
+        });
+        setMatches(sortedMatches);
       }
     } catch (error) {
       console.log("Erreur dashboard:", error.response?.data || error);
@@ -61,6 +75,8 @@ export default function HomeScreen({ navigation }) {
   const goToProfile = () => {
     navigation.navigate("Profile"); // assure-toi que l'écran existe dans ton navigator
   };
+
+  const recentMatches = matches.slice(0, 4);
 
   useEffect(() => {
     const random =
@@ -144,6 +160,43 @@ export default function HomeScreen({ navigation }) {
             Pas encore de match prévu.
           </Text>
         )}
+      </View>
+
+      {/* HISTORIQUE DES MATCHS */}
+      <View style={[styles.card, styles.historyCard]}>
+        <View style={styles.cardHeader}>
+          <Ionicons name="time" size={30} color="#fff" />
+          <Text style={styles.cardTitle}>Historique des matchs</Text>
+        </View>
+
+        {recentMatches.length > 0 ? (
+          <View style={styles.historyList}>
+            {recentMatches.map((match, index) => (
+              <View key={match._id || index} style={styles.historyItem}>
+                <View style={styles.historyTextWrap}>
+                  <Text style={styles.historyDate}>
+                    {match.date} • {match.heure || "--:--"}
+                  </Text>
+                  <Text style={styles.historyPlace}>{match.terrain || "Terrain non défini"}</Text>
+                </View>
+                <View style={styles.historyBadge}>
+                  <Text style={styles.historyBadgeText}>
+                    {match.feuilleDeMatch?.length || 0}
+                  </Text>
+                </View>
+              </View>
+            ))}
+          </View>
+        ) : (
+          <Text style={styles.noMatch}>Aucun match enregistré pour l’instant.</Text>
+        )}
+
+        <TouchableOpacity
+          style={[styles.button, styles.secondaryButton]}
+          onPress={() => navigation.navigate("Match")}
+        >
+          <Text style={styles.buttonText}>Voir tous les matchs</Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
@@ -282,9 +335,55 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
     elevation: 3,
   },
+  secondaryButton: {
+    backgroundColor: "#f59e0b",
+  },
   buttonText: {
     color: "#fff",
     fontWeight: "700",
     fontSize: 16,
+  },
+  historyCard: {
+    backgroundColor: "#1f2937",
+  },
+  historyList: {
+    marginTop: 10,
+  },
+  historyItem: {
+    backgroundColor: "rgba(255,255,255,0.08)",
+    borderRadius: 12,
+    padding: 12,
+    marginBottom: 10,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  historyTextWrap: {
+    flex: 1,
+    paddingRight: 10,
+  },
+  historyDate: {
+    color: "#fff",
+    fontWeight: "700",
+    fontSize: 14,
+    marginBottom: 4,
+  },
+  historyPlace: {
+    color: "#d1d5db",
+    fontSize: 13,
+  },
+  historyBadge: {
+    backgroundColor: "#22c55e",
+    borderRadius: 999,
+    minWidth: 32,
+    height: 32,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingHorizontal: 8,
+  },
+  historyBadgeText: {
+    color: "#fff",
+    fontWeight: "700",
+    fontSize: 12,
   },
 });
