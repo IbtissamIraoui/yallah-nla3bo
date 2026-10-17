@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useIsFocused } from '@react-navigation/native';
-import { Audio } from 'expo-av';
+import { createAudioPlayer } from 'expo-audio';
 import * as Location from 'expo-location';
 import client from '../api/client';
 import Loader from '../components/Loader';
@@ -51,7 +51,7 @@ export default function MatchScreen() {
   const isFocused = useIsFocused();
 
   // ================== HELPER: GET PLAYER INFO ==================
-  
+
   const getPlayerInfo = (joueurId) => {
     // Si c'est déjà un objet avec name
     if (joueurId && typeof joueurId === 'object' && joueurId.name) {
@@ -60,7 +60,7 @@ export default function MatchScreen() {
         name: joueurId.name
       };
     }
-    
+
     // Si c'est juste un ID string, chercher dans la liste des joueurs
     if (typeof joueurId === 'string') {
       const player = players.find(p => p._id === joueurId || p.id === joueurId);
@@ -69,7 +69,7 @@ export default function MatchScreen() {
         name: player ? player.name : 'Joueur inconnu'
       };
     }
-    
+
     return { id: null, name: 'Joueur inconnu' };
   };
 
@@ -84,7 +84,7 @@ export default function MatchScreen() {
       ]);
       console.log('MATCHES ===>', resMatches.data);
       console.log('PLAYERS ===>', resPlayers.data);
-      
+
       if (resMatches.data.success) {
         setMatches(resMatches.data.matches || []);
       }
@@ -216,7 +216,7 @@ export default function MatchScreen() {
       Alert.alert('Erreur', 'Localisation invalide');
       return;
     }
-    
+
     const url = Platform.select({
       ios: `maps://app?q=${location.latitude},${location.longitude}`,
       android: `geo:${location.latitude},${location.longitude}?q=${location.latitude},${location.longitude}`
@@ -304,7 +304,7 @@ export default function MatchScreen() {
           matchData,
         );
         console.log('update match res', res.data);
-        
+
         // Mise à jour locale
         setMatches(prev =>
           prev.map(m =>
@@ -318,7 +318,7 @@ export default function MatchScreen() {
           feuilleDeMatch,
         });
         console.log('create match res', res.data);
-        
+
         if (res.data?.match) {
           setMatches(prev => [res.data.match, ...prev]);
         } else if (res.data?.success) {
@@ -327,10 +327,8 @@ export default function MatchScreen() {
         }
 
         try {
-          const { sound } = await Audio.Sound.createAsync(
-            require('../../assets/sifflet.mp3'),
-          );
-          await sound.playAsync();
+          const player = createAudioPlayer(require('../../assets/xxx.mp3')); // même chemin qu'avant
+          player.play();
         } catch (e) {
           console.log('Erreur audio:', e);
         }
@@ -374,7 +372,7 @@ export default function MatchScreen() {
             try {
               const res = await client.delete(`/api/matches/${match._id}`);
               console.log('delete res', res.data);
-              
+
               // Vérifier si la suppression a réussi
               if (res.data?.success !== false) {
                 setMatches(prev => prev.filter(m => m._id !== match._id));

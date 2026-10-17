@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const { MongoMemoryServer } = require('mongodb-memory-server');
 
 const app = express();
 app.use(cors({ origin: '*', credentials: true }));
@@ -13,14 +14,31 @@ app.use(express.json());
 const Player = require('./models/Player');
 const Match = require('./models/Match');
 
-const PORT = process.env.PORT || 3000;
-const MONGO_URI = process.env.MONGODB_URI;
-const JWT_SECRET = process.env.JWT_SECRET;
+const PORT = process.env.PORT || 3001;
+const MONGO_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/koratime';
+const JWT_SECRET = process.env.JWT_SECRET || 'kora_time_maroc_2025_secret_ultra_secure';
 
-// Connexion DB
-mongoose.connect(MONGO_URI)
-  .then(() => console.log('MongoDB connecté !'))
-  .catch(err => console.log('Mongo erreur:', err));
+async function connectDatabase() {
+  try {
+    await mongoose.connect(MONGO_URI);
+    console.log('MongoDB connecté !');
+  } catch (err) {
+    if (MONGO_URI.includes('127.0.0.1') || MONGO_URI.includes('localhost')) {
+      try {
+        const memoryMongo = await MongoMemoryServer.create();
+        await mongoose.connect(memoryMongo.getUri());
+        console.log('MongoDB mémoire installé et connecté !');
+      } catch (memoryErr) {
+        console.log('Mongo erreur:', err);
+        console.log('Mongo mémoire erreur:', memoryErr);
+      }
+    } else {
+      console.log('Mongo erreur:', err);
+    }
+  }
+}
+
+connectDatabase();
 
 // User (auth)
 const userSchema = new mongoose.Schema({
@@ -160,5 +178,5 @@ app.get('/api/dashboard', auth, async (req, res) => {
 app.get('/', (req, res) => res.send('KORA TIME BACKEND 100% OP'));
 
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`SERVEUR KORA TIME LANCÉ → http://100.79.104.91:${PORT}`);
+  console.log(`SERVEUR KORA TIME LANCÉ → http://192.168.1.100:${PORT}`);
 });
