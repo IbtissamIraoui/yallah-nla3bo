@@ -33,24 +33,20 @@ export default function HomeScreen({ navigation }) {
   const fetchDashboardData = async () => {
     setLoading(true);
     try {
-      const [dashboardRes, matchesRes] = await Promise.all([
-        client.get("/api/dashboard"),
-        client.get("/api/matches"),
-      ]);
-
-      if (dashboardRes.data.success) {
-        setCaisse(dashboardRes.data.totalCaisse || 0);
-        setProchainMatch(dashboardRes.data.prochainMatch);
-      }
-
-      if (matchesRes.data.success) {
-        const sortedMatches = [...(matchesRes.data.matches || [])].sort((a, b) => {
-          const dateA = a.date ? new Date(`${a.date}T${a.heure || "00:00"}`) : 0;
-          const dateB = b.date ? new Date(`${b.date}T${b.heure || "00:00"}`) : 0;
-          return dateB - dateA;
-        });
-        setMatches(sortedMatches);
-      }
+      const matchesRes = await client.get("/api/matches");
+      const allMatches = matchesRes.data.matches || [];
+      const sortedMatches = [...allMatches].sort(
+        (a, b) => new Date(b.dateTime) - new Date(a.dateTime),
+      );
+      setMatches(sortedMatches);
+      const upcoming = allMatches
+        .filter(match => new Date(match.dateTime) > new Date())
+        .sort((a, b) => new Date(a.dateTime) - new Date(b.dateTime))[0] || null;
+      setProchainMatch(upcoming);
+      setCaisse(allMatches.reduce(
+        (total, match) => total + (Number(match.price) || 0) * (match.players?.length || 0),
+        0,
+      ));
     } catch (error) {
       console.log("Erreur dashboard:", error.response?.data || error);
     } finally {
@@ -127,7 +123,7 @@ export default function HomeScreen({ navigation }) {
         </View>
         <Text style={styles.bigAmount}>{caisse} DH</Text>
         <Text style={styles.cardFooter}>
-          Total récolté pour le terrain
+          Estimation des inscriptions
         </Text>
       </LinearGradient>
 
@@ -140,13 +136,13 @@ export default function HomeScreen({ navigation }) {
         {prochainMatch ? (
           <View>
             <Text style={styles.matchInfo}>
-              📅 {prochainMatch.date} à {prochainMatch.heure}
+              📅 {new Date(prochainMatch.dateTime).toLocaleString()}
             </Text>
             <Text style={styles.matchInfo}>
-              📍 {prochainMatch.terrain}
+              📍 {prochainMatch.address || prochainMatch.title}
             </Text>
             <Text style={styles.matchInfo}>
-              👥 {prochainMatch.feuilleDeMatch?.length || 0} Inscrits
+              👥 {prochainMatch.players?.length || 0} Inscrits
             </Text>
             <TouchableOpacity
               style={styles.button}
@@ -175,13 +171,13 @@ export default function HomeScreen({ navigation }) {
               <View key={match._id || index} style={styles.historyItem}>
                 <View style={styles.historyTextWrap}>
                   <Text style={styles.historyDate}>
-                    {match.date} • {match.heure || "--:--"}
+                    {new Date(match.dateTime).toLocaleString()}
                   </Text>
-                  <Text style={styles.historyPlace}>{match.terrain || "Terrain non défini"}</Text>
+                  <Text style={styles.historyPlace}>{match.address || match.title || "Terrain non d?fini"}</Text>
                 </View>
                 <View style={styles.historyBadge}>
                   <Text style={styles.historyBadgeText}>
-                    {match.feuilleDeMatch?.length || 0}
+                    {match.players?.length || 0}
                   </Text>
                 </View>
               </View>

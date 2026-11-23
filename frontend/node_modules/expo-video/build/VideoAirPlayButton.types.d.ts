@@ -32,4 +32,3 @@ export interface VideoAirPlayButtonProps extends Omit<ViewProps, 'children'> {
      */
     onEndPresentingRoutes?: () => void;
 }
-//# sourceMappingURL=VideoAirPlayButton.types.d.ts.map

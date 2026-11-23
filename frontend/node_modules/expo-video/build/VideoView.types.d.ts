@@ -18,7 +18,7 @@ export type VideoContentFit = 'contain' | 'cover' | 'fill';
 export type SurfaceType = 'textureView' | 'surfaceView';
 export interface VideoViewProps extends ViewProps {
     /**
-     * A video player instance. Use [`useVideoPlayer()`](#usevideoplayersource-setup) hook to create one.
+     * A video player instance. Use [`useVideoPlayer()`](#usevideoplayersource-setup-playerbuilderoptions) hook to create one.
      */
     player?: VideoPlayer | null;
     /**
@@ -141,6 +141,16 @@ export interface VideoViewProps extends ViewProps {
      * @default false
      */
     useExoShutter?: boolean;
+    /**
+     * Determines whether the native controls are shown automatically when playback starts, pauses, or ends.
+     * When `false`, the controls won't appear automatically, but can still be shown by tapping the view. This is
+     * useful when playback is driven programmatically (for example an auto-advancing playlist), where the controls
+     * appearing on every play reads as a flash.
+     *
+     * @platform android
+     * @default true
+     */
+    controllerAutoShow?: boolean;
     /**
      * Determines the [cross origin policy](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/crossorigin) used by the underlying native view on web.
      * If `undefined` (default), does not use CORS at all. If set to `'anonymous'`, the video will be loaded with CORS enabled.
@@ -276,4 +286,3 @@ export type FullscreenOptions = {
      */
     keepFullscreenOnPiPStop?: KeepFullscreenOnPiPStopBehavior;
 };
-//# sourceMappingURL=VideoView.types.d.ts.map

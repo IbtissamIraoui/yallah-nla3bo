@@ -66,4 +66,3 @@ export declare class VideoView extends PureComponent<VideoViewProps> {
     stopPictureInPicture(): Promise<void>;
     render(): ReactNode;
 }
-//# sourceMappingURL=VideoView.d.ts.map

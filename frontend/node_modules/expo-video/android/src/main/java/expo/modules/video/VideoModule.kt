@@ -24,6 +24,7 @@ import expo.modules.video.records.SubtitleTrack
 import expo.modules.video.records.AudioTrack
 import expo.modules.video.records.ScrubbingModeOptions
 import expo.modules.video.records.SeekTolerance
+import expo.modules.video.records.VideoSize
 import expo.modules.video.records.VideoSource
 import expo.modules.video.records.VideoThumbnailOptions
 import expo.modules.video.utils.runWithPiPMisconfigurationSoftHandling
@@ -135,6 +136,14 @@ class VideoModule : Module() {
           ref.currentVideoTrack
         }
 
+      Property("maxResolution")
+        .get { ref: VideoPlayer ->
+          ref.maxResolution
+        }
+        .set { ref: VideoPlayer, maxResolution: VideoSize? ->
+          ref.maxResolution = maxResolution
+        }
+
       Property("availableSubtitleTracks")
         .get { ref: VideoPlayer ->
           ref.subtitles.availableSubtitleTracks
@@ -182,7 +191,11 @@ class VideoModule : Module() {
           ref.playbackParameters.speed
         }
         .set { ref: VideoPlayer, playbackRate: Float ->
-          val pitch = if (ref.preservesPitch) 1f else playbackRate
+          val pitch = if (ref.preservesPitch) {
+            1f
+          } else {
+            playbackRate
+          }
           ref.playbackParameters = PlaybackParameters(playbackRate, pitch)
         }
 
@@ -418,6 +431,9 @@ private inline fun <reified T : VideoView> ViewDefinitionBuilder<T>.VideoViewCom
   }
   Prop("useExoShutter") { view: T, useExoShutter: Boolean? ->
     view.useExoShutter = useExoShutter
+  }
+  Prop("controllerAutoShow") { view: T, controllerAutoShow: Boolean? ->
+    view.controllerAutoShow = controllerAutoShow ?: true
   }
   AsyncFunction("enterFullscreen") { view: T ->
     view.enterFullscreen()

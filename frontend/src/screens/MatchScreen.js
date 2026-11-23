@@ -50,6 +50,30 @@ export default function MatchScreen() {
 
   const isFocused = useIsFocused();
 
+  const toScreenMatch = match => {
+    const dateTime = new Date(match.dateTime);
+    const coordinates = match.location?.coordinates || [];
+    return {
+      ...match,
+      nom: match.title,
+      date: Number.isNaN(dateTime.getTime())
+        ? ''
+        : `${dateTime.getFullYear()}-${String(dateTime.getMonth() + 1).padStart(2, '0')}-${String(dateTime.getDate()).padStart(2, '0')}`,
+      heure: Number.isNaN(dateTime.getTime()) ? '' : dateTime.toTimeString().slice(0, 5),
+      terrain: match.address || match.title,
+      prixTotal: match.price ?? 0,
+      location: coordinates.length === 2
+        ? { longitude: coordinates[0], latitude: coordinates[1] }
+        : null,
+      feuilleDeMatch: (match.players || []).map(player => ({
+        joueurId: player.userId,
+        present: true,
+        paye: false,
+        montantPaye: 0,
+      })),
+    };
+  };
+
   // ================== HELPER: GET PLAYER INFO ==================
 
   const getPlayerInfo = (joueurId) => {
@@ -86,7 +110,7 @@ export default function MatchScreen() {
       console.log('PLAYERS ===>', resPlayers.data);
 
       if (resMatches.data.success) {
-        setMatches(resMatches.data.matches || []);
+        setMatches((resMatches.data.matches || []).map(toScreenMatch));
       }
       if (resPlayers.data.success) {
         setPlayers(resPlayers.data.players || []);
@@ -281,21 +305,21 @@ export default function MatchScreen() {
       return Alert.alert('Erreur', "Format d'heure invalide (HH:MM)");
     }
 
-    const feuilleDeMatch = players.map(p => ({
-      joueurId: p._id,
-      present: true,
-      paye: false,
-      montantPaye: 0,
-    }));
+    if (newMatch.location?.latitude == null || newMatch.location?.longitude == null) {
+      return Alert.alert('Erreur', 'Ajoutez votre localisation pour publier le match.');
+    }
 
     setLoading(true);
     try {
       const matchData = {
-        date: newMatch.date,
-        heure: newMatch.heure,
-        terrain: newMatch.terrain,
-        prixTotal: Number(newMatch.prixTotal),
-        location: newMatch.location,
+        title: newMatch.terrain.trim(),
+        address: newMatch.terrain.trim(),
+        dateTime: new Date(`${newMatch.date}T${newMatch.heure}:00`).toISOString(),
+        lng: newMatch.location.longitude,
+        lat: newMatch.location.latitude,
+        durationMinutes: 90,
+        playersNeeded: 10,
+        price: Number(newMatch.prixTotal) || 0,
       };
 
       if (editingMatch) {
@@ -307,20 +331,17 @@ export default function MatchScreen() {
 
         // Mise à jour locale
         setMatches(prev =>
-          prev.map(m =>
-            m._id === editingMatch._id ? { ...m, ...matchData } : m,
-          ),
+          prev.map(m => m._id === editingMatch._id
+            ? toScreenMatch({ ...m, ...matchData, location: { type: 'Point', coordinates: [matchData.lng, matchData.lat] } })
+            : m),
         );
         Alert.alert('Succès', 'Match modifié avec succès');
       } else {
-        const res = await client.post('/api/matches', {
-          ...matchData,
-          feuilleDeMatch,
-        });
+        const res = await client.post('/api/matches', matchData);
         console.log('create match res', res.data);
 
         if (res.data?.match) {
-          setMatches(prev => [res.data.match, ...prev]);
+          setMatches(prev => [toScreenMatch(res.data.match), ...prev]);
         } else if (res.data?.success) {
           // Recharger les données si la structure est différente
           await loadData();
@@ -875,7 +896,7 @@ export default function MatchScreen() {
                   <Text style={styles.locationSelectText}>
                     {newMatch.location
                       ? '📍 Localisation sélectionnée ✓'
-                      : 'Ajouter localisation (optionnel)'}
+                      : 'Ajouter localisation (obligatoire)'}
                   </Text>
                 </TouchableOpacity>
 

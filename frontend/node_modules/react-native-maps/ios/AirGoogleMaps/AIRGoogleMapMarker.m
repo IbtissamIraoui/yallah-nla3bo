@@ -9,6 +9,8 @@
 
 #import "AIRGoogleMapMarker.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import <React/RCTBridge.h>
+#import <React/RCTBridge+Private.h>
 #import <React/RCTImageLoaderProtocol.h>
 #import <React/RCTUtils.h>
 #import "AIRGMSMarker.h"
@@ -32,6 +34,7 @@ CGRect unionRect(CGRect a, CGRect b) {
     RCTDirectEventBlock _onSelect;
     RCTDirectEventBlock _onDeselect;
     __weak UIImageView *_iconImageView;
+    UIImage *_iconImage;
     UIView *_iconView;
     UIColor *_pinColor;
     CLLocationCoordinate2D _coordinates;
@@ -127,6 +130,13 @@ CGRect unionRect(CGRect a, CGRect b) {
     [_realMarker setTappable:_tappable];
     if (_pinColor){
         _realMarker.icon = [GMSMarker markerImageWithColor:_pinColor];
+    }
+    if (_iconSrc){
+        if (_iconImage){
+            _realMarker.icon = _iconImage;
+        } else {
+            [self setIconSrc:_iconSrc];
+        }
     }
     if (_opacity != 1.0){
         [_realMarker setOpacity:_opacity];
@@ -364,7 +374,7 @@ CGRect unionRect(CGRect a, CGRect b) {
     }
     __weak AIRGoogleMapMarker* weakSelf = self;
 
-    _reloadImageCancellationBlock = [[_bridge moduleForName:@"ImageLoader"] loadImageWithURLRequest:[RCTConvert NSURLRequest:_imageSrc]
+    _reloadImageCancellationBlock = [[[RCTBridge currentBridge] moduleForName:@"ImageLoader"] loadImageWithURLRequest:[RCTConvert NSURLRequest:_imageSrc]
                                                                                                size:self.bounds.size
                                                                                               scale:RCTScreenScale()
                                                                                             clipped:YES
@@ -418,6 +428,7 @@ CGRect unionRect(CGRect a, CGRect b) {
 - (void)setIconSrc:(NSString *)iconSrc
 {
     _iconSrc = iconSrc;
+    _iconImage = nil;
 
     if (_reloadImageCancellationBlock) {
         _reloadImageCancellationBlock();
@@ -431,7 +442,7 @@ CGRect unionRect(CGRect a, CGRect b) {
     }
 
     _reloadImageCancellationBlock =
-    [[_bridge moduleForName:@"ImageLoader"] loadImageWithURLRequest:[RCTConvert NSURLRequest:_iconSrc]
+    [[[RCTBridge currentBridge] moduleForName:@"ImageLoader"] loadImageWithURLRequest:[RCTConvert NSURLRequest:_iconSrc]
                                                                size:self.bounds.size
                                                               scale:RCTScreenScale()
                                                             clipped:YES
@@ -444,6 +455,7 @@ CGRect unionRect(CGRect a, CGRect b) {
             NSLog(@"%@", error);
         }
         dispatch_async(dispatch_get_main_queue(), ^{
+            self->_iconImage = image;
             self->_realMarker.icon = image;
         });
     }];
@@ -517,6 +529,7 @@ CGRect unionRect(CGRect a, CGRect b) {
 }
 
 - (void)setTracksViewChanges:(BOOL)tracksViewChanges {
+    _tracksViewChanges = tracksViewChanges;
     _realMarker.tracksViewChanges = tracksViewChanges;
 }
 
@@ -525,6 +538,7 @@ CGRect unionRect(CGRect a, CGRect b) {
 }
 
 - (void)setTracksInfoWindowChanges:(BOOL)tracksInfoWindowChanges {
+    _tracksInfoWindowChanges = tracksInfoWindowChanges;
     _realMarker.tracksInfoWindowChanges = tracksInfoWindowChanges;
 }
 

@@ -18,6 +18,7 @@ const defaultProps = {
   loop: true,
   autoPlay: false,
   enableMergePathsAndroidForKitKatAndAbove: false,
+  applyOpacityToLayersAndroid: false,
   enableSafeModeAndroid: false,
   cacheComposition: true,
   useNativeLooping: false,

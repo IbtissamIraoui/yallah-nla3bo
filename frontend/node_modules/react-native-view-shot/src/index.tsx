@@ -1,6 +1,5 @@
 import React, {
   ReactNode,
-  RefObject,
   useRef,
   useCallback,
   useEffect,
@@ -39,9 +38,11 @@ export interface CaptureOptions {
    */
   height?: number;
   /**
-   * either png or jpg or webm (Android). Defaults to png. raw is a ARGB array of image pixels.
+   * either png, jpg, webp (Android), or raw (Android, ARGB pixel array). Defaults to png.
+   * `webm` is accepted as a deprecated alias for `webp` (it has always produced WEBP-encoded
+   * data — the extension was misnamed).
    */
-  format?: "jpg" | "png" | "webm" | "raw";
+  format?: "jpg" | "png" | "webp" | "webm" | "raw";
   /**
    * the quality. 0.0 - 1.0 (default). (only available on lossy formats like jpg)
    */
@@ -80,7 +81,7 @@ export interface ViewShotProperties {
    * - if not defined (default). the capture is not automatic and you need to use the ref and call capture()
    *   yourself.
    * - "mount". Capture the view once at mount. (It is important to understand image loading won't be waited, in
-   *   such case you want to use "none" with viewShotRef.capture() after Image#onLoad.)
+   *   such case omit captureMode and call viewShotRef.current.capture() after Image#onLoad.)
    * - "continuous" EXPERIMENTAL, this will capture A LOT of images continuously. For very specific use-cases.
    * - "update" EXPERIMENTAL, this will capture images each time React redraw (on did update). For very specific
    *   use-cases.
@@ -109,7 +110,7 @@ export interface ViewShotProperties {
 }
 
 const acceptedFormats = ["png", "jpg"].concat(
-  Platform.OS === "android" ? ["webm", "raw"] : [],
+  Platform.OS === "android" ? ["webp", "webm", "raw"] : [],
 );
 
 const acceptedResults = ["tmpfile", "base64", "data-uri"].concat(
@@ -136,20 +137,25 @@ function validateOptions(input?: CaptureOptions): {
   const errors: string[] = [];
   if (
     "width" in options &&
-    (typeof options.width !== "number" || options.width <= 0)
+    (typeof options.width !== "number" ||
+      !Number.isFinite(options.width) ||
+      options.width <= 0)
   ) {
     errors.push("option width should be a positive number");
     delete options.width;
   }
   if (
     "height" in options &&
-    (typeof options.height !== "number" || options.height <= 0)
+    (typeof options.height !== "number" ||
+      !Number.isFinite(options.height) ||
+      options.height <= 0)
   ) {
     errors.push("option height should be a positive number");
     delete options.height;
   }
   if (
     typeof options.quality !== "number" ||
+    !Number.isFinite(options.quality) ||
     options.quality < 0 ||
     options.quality > 1
   ) {
@@ -158,33 +164,55 @@ function validateOptions(input?: CaptureOptions): {
   }
   if (typeof options.snapshotContentContainer !== "boolean") {
     errors.push("option snapshotContentContainer should be a boolean");
+    options.snapshotContentContainer = defaultOptions.snapshotContentContainer;
   }
   if (typeof options.handleGLSurfaceViewOnAndroid !== "boolean") {
     errors.push("option handleGLSurfaceViewOnAndroid should be a boolean");
+    options.handleGLSurfaceViewOnAndroid =
+      defaultOptions.handleGLSurfaceViewOnAndroid;
   }
   if (acceptedFormats.indexOf(options.format || "") === -1) {
+    const badFormat = options.format;
     options.format = defaultOptions.format;
     errors.push(
       "option format '" +
-        options.format +
+        badFormat +
         "' is not in valid formats: " +
         acceptedFormats.join(" | "),
     );
+  } else if (options.format === "webm") {
+    errors.push(
+      "option format 'webm' is deprecated and will be removed in a future version. Use 'webp' instead (the encoded data has always been WEBP, only the extension was misnamed).",
+    );
   }
   if (acceptedResults.indexOf(options.result || "") === -1) {
+    const badResult = options.result;
     options.result = defaultOptions.result;
     errors.push(
       "option result '" +
-        options.result +
-        "' is not in valid formats: " +
+        badResult +
+        "' is not a valid result: " +
         acceptedResults.join(" | "),
     );
   }
   return {options, errors};
 }
 
-export function captureRef<T = any>(
-  view: number | React.ReactInstance | RefObject<T> | null,
+// `HostElement` is the minimal shape of an HTMLElement; web callers can pass
+// `document.body` or similar without the consuming TS project needing the DOM lib.
+interface HostElement {
+  readonly nodeType: number;
+}
+
+type CaptureTarget =
+  | number
+  | React.Component
+  | HostElement
+  | React.RefObject<React.Component | HostElement | null>
+  | null;
+
+export function captureRef(
+  view: CaptureTarget,
   optionsObject?: CaptureOptions,
 ): Promise<string> {
   if (!RNViewShot) {
@@ -195,15 +223,14 @@ export function captureRef<T = any>(
       "react-native-view-shot: NativeModules.RNViewShot is undefined. Make sure the library is linked on the native side.",
     );
   }
-  let viewHandle: any = view;
-  if (view && typeof view === "object" && "current" in view && view.current) {
-    viewHandle = view.current;
-    if (!viewHandle) {
-      return Promise.reject(new Error("ref.current is null"));
-    }
-  }
+  let viewHandle: number | React.Component | HostElement | null =
+    typeof view === "number"
+      ? view
+      : view && typeof view === "object" && "current" in view
+        ? view.current
+        : view;
   if (Platform.OS !== "web" && typeof viewHandle !== "number") {
-    const node = findNodeHandle(viewHandle);
+    const node = findNodeHandle(viewHandle as React.Component | null);
     if (!node) {
       return Promise.reject(
         new Error("findNodeHandle failed to resolve view=" + String(view)),
@@ -212,22 +239,18 @@ export function captureRef<T = any>(
     viewHandle = node;
   }
   const {options, errors} = validateOptions(optionsObject);
-  if (__DEV__ && errors.length > 0) {
+  if (errors.length > 0) {
     console.warn(
       "react-native-view-shot: bad options:\n" +
         errors.map(e => `- ${e}`).join("\n"),
     );
   }
-  if (
-    __DEV__ &&
-    Platform.OS === "windows" &&
-    optionsObject?.snapshotContentContainer
-  ) {
+  if (Platform.OS === "windows" && optionsObject?.snapshotContentContainer) {
     console.warn(
       "react-native-view-shot: `snapshotContentContainer` is not supported on Windows. The option is ignored; only the visible viewport will be captured.",
     );
   }
-  return RNViewShot.captureRef(viewHandle, options);
+  return RNViewShot.captureRef(viewHandle as number, options);
 }
 
 export function releaseCapture(uri: string): void {
@@ -250,7 +273,7 @@ export function captureScreen(optionsObject?: CaptureOptions): Promise<string> {
     );
   }
   const {options, errors} = validateOptions(optionsObject);
-  if (__DEV__ && errors.length > 0) {
+  if (errors.length > 0) {
     console.warn(
       "react-native-view-shot: bad options:\n" +
         errors.map(e => `- ${e}`).join("\n"),
@@ -289,7 +312,7 @@ function checkCompatibleProps(props: ViewShotProperties): void {
  * method is attached to that node for the imperative `ref.current.capture()`
  * usage.
  */
-export type ViewShotRef = View & {
+export type ViewShotRef = React.ComponentRef<typeof View> & {
   capture: () => Promise<string>;
 };
 
@@ -305,14 +328,16 @@ const ViewShotComponent = forwardRef<ViewShotRef, ViewShotProperties>(
       style,
     } = props;
 
-    const rootRef = useRef<View>(null);
+    const rootRef = useRef<React.ComponentRef<typeof View> | null>(null);
     const rafRef = useRef<number | null>(null);
     const lastCapturedURIRef = useRef<string | null>(null);
-    const resolveFirstLayoutRef = useRef<((layout: any) => void) | null>(null);
+    const resolveFirstLayoutRef = useRef<((layout: unknown) => void) | null>(
+      null,
+    );
 
     const firstLayoutPromise = useMemo(
       () =>
-        new Promise<any>(resolve => {
+        new Promise<unknown>(resolve => {
           resolveFirstLayoutRef.current = resolve;
         }),
       [],
@@ -353,7 +378,7 @@ const ViewShotComponent = forwardRef<ViewShotRef, ViewShotProperties>(
     );
 
     const setRootRef = useCallback(
-      (node: View | null): void => {
+      (node: React.ComponentRef<typeof View> | null): void => {
         rootRef.current = node;
         if (node) (node as ViewShotRef).capture = capture;
         if (typeof ref === "function") {

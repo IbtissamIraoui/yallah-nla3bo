@@ -1712,3 +1712,393 @@
 {"_e":"devserver:start","_t":1792277644530,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
 {"_e":"metro:config","_t":1792277644804,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
 {"_e":"expo:dev-tools-plugin:load","_t":1792277645017,"plugins":[]}
+{"_e":"metro:instantiate","_t":1792277650106,"atlas":false,"workers":10,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1792277655904,"id":"1","platform":"ios","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792277655905,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792277655907,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792277656410,"id":"1","progress":0.010000000000000002,"total":1,"current":1}
+{"_e":"metro:bundling:progress","_t":1792277656518,"id":"1","progress":0.010000000000000002,"total":3,"current":1}
+{"_e":"metro:bundling:progress","_t":1792277656524,"id":"1","progress":0.04000000000000001,"total":3,"current":2}
+{"_e":"metro:bundling:progress","_t":1792277656627,"id":"1","progress":0.04000000000000001,"total":21,"current":3}
+{"_e":"metro:bundling:progress","_t":1792277656759,"id":"1","progress":0.04000000000000001,"total":21,"current":4}
+{"_e":"metro:bundling:progress","_t":1792277656862,"id":"1","progress":0.04000000000000001,"total":30,"current":5}
+{"_e":"metro:bundling:progress","_t":1792277656939,"id":"1","progress":0.04000000000000001,"total":30,"current":6}
+{"_e":"metro:bundling:progress","_t":1792277657050,"id":"1","progress":0.044995408631772274,"total":33,"current":7}
+{"_e":"metro:bundling:progress","_t":1792277657202,"id":"1","progress":0.05876951331496787,"total":33,"current":8}
+{"_e":"metro:bundling:progress","_t":1792277657316,"id":"1","progress":0.08379501385041552,"total":38,"current":11}
+{"_e":"metro:bundling:progress","_t":1792277657446,"id":"1","progress":0.09972299168975068,"total":38,"current":12}
+{"_e":"metro:bundling:progress","_t":1792277657624,"id":"1","progress":0.11703601108033242,"total":38,"current":13}
+{"_e":"metro:bundling:progress","_t":1792277657738,"id":"1","progress":0.11703601108033242,"total":146,"current":16}
+{"_e":"metro:bundling:progress","_t":1792277657840,"id":"1","progress":0.11703601108033242,"total":178,"current":23}
+{"_e":"metro:bundling:progress","_t":1792277657940,"id":"1","progress":0.11703601108033242,"total":193,"current":30}
+{"_e":"metro:bundling:progress","_t":1792277658040,"id":"1","progress":0.11703601108033242,"total":269,"current":41}
+{"_e":"metro:bundling:progress","_t":1792277658141,"id":"1","progress":0.11703601108033242,"total":288,"current":53}
+{"_e":"metro:bundling:progress","_t":1792277658240,"id":"1","progress":0.11703601108033242,"total":299,"current":60}
+{"_e":"metro:bundling:progress","_t":1792277658340,"id":"1","progress":0.11703601108033242,"total":309,"current":73}
+{"_e":"metro:bundling:progress","_t":1792277658440,"id":"1","progress":0.11703601108033242,"total":327,"current":92}
+{"_e":"metro:bundling:progress","_t":1792277658540,"id":"1","progress":0.11703601108033242,"total":363,"current":118}
+{"_e":"metro:bundling:progress","_t":1792277658640,"id":"1","progress":0.1425849066840278,"total":384,"current":145}
+{"_e":"metro:bundling:progress","_t":1792277658741,"id":"1","progress":0.1563007030827474,"total":430,"current":170}
+{"_e":"metro:bundling:progress","_t":1792277658841,"id":"1","progress":0.17098399473018924,"total":474,"current":196}
+{"_e":"metro:bundling:progress","_t":1792277658944,"id":"1","progress":0.19410524724536415,"total":488,"current":215}
+{"_e":"metro:bundling:progress","_t":1792277659043,"id":"1","progress":0.20855543536342191,"total":554,"current":253}
+{"_e":"metro:bundling:progress","_t":1792277659143,"id":"1","progress":0.2320027777777778,"total":600,"current":289}
+{"_e":"metro:bundling:progress","_t":1792277659243,"id":"1","progress":0.24922057724742688,"total":641,"current":320}
+{"_e":"metro:bundling:progress","_t":1792277659348,"id":"1","progress":0.28232568500779687,"total":670,"current":356}
+{"_e":"metro:bundling:progress","_t":1792277659448,"id":"1","progress":0.28971044237379606,"total":719,"current":387}
+{"_e":"metro:bundling:progress","_t":1792277659548,"id":"1","progress":0.33583743216047546,"total":742,"current":430}
+{"_e":"metro:bundling:progress","_t":1792277659649,"id":"1","progress":0.36255092204968725,"total":754,"current":454}
+{"_e":"metro:bundling:progress","_t":1792277659749,"id":"1","progress":0.3689996527911732,"total":805,"current":489}
+{"_e":"metro:bundling:progress","_t":1792277659849,"id":"1","progress":0.41428508440508965,"total":811,"current":522}
+{"_e":"metro:bundling:progress","_t":1792277659949,"id":"1","progress":0.4545784656045476,"total":838,"current":565}
+{"_e":"metro:bundling:progress","_t":1792277660050,"id":"1","progress":0.497587835306046,"total":852,"current":601}
+{"_e":"metro:bundling:progress","_t":1792277660152,"id":"1","progress":0.531824045955531,"total":868,"current":633}
+{"_e":"metro:bundling:progress","_t":1792277660254,"id":"1","progress":0.5710161544603919,"total":884,"current":668}
+{"_e":"metro:bundling:progress","_t":1792277660356,"id":"1","progress":0.6076632153264305,"total":889,"current":693}
+{"_e":"metro:bundling:progress","_t":1792277660456,"id":"1","progress":0.6275260164748313,"total":919,"current":728}
+{"_e":"metro:bundling:progress","_t":1792277660556,"id":"1","progress":0.6692632412856496,"total":940,"current":769}
+{"_e":"metro:bundling:progress","_t":1792277660657,"id":"1","progress":0.7106365638057254,"total":949,"current":800}
+{"_e":"metro:bundling:progress","_t":1792277660757,"id":"1","progress":0.7679005969026759,"total":962,"current":843}
+{"_e":"metro:bundling:progress","_t":1792277660869,"id":"1","progress":0.7801561112628919,"total":968,"current":855}
+{"_e":"metro:bundling:progress","_t":1792277660969,"id":"1","progress":0.7995099912200833,"total":992,"current":887}
+{"_e":"metro:bundling:progress","_t":1792277661070,"id":"1","progress":0.8318449358683935,"total":1012,"current":923}
+{"_e":"metro:bundling:progress","_t":1792277661170,"id":"1","progress":0.8844079971313477,"total":1024,"current":963}
+{"_e":"metro:bundling:progress","_t":1792277661271,"id":"1","progress":0.9025912607123313,"total":1041,"current":989}
+{"_e":"metro:bundling:progress","_t":1792277661371,"id":"1","progress":0.9025912607123313,"total":1078,"current":1018}
+{"_e":"metro:bundling:progress","_t":1792277661471,"id":"1","progress":0.9078527409330008,"total":1102,"current":1050}
+{"_e":"metro:bundling:progress","_t":1792277661571,"id":"1","progress":0.9078527409330008,"total":1136,"current":1082}
+{"_e":"metro:bundling:progress","_t":1792277661673,"id":"1","progress":0.9186791345889058,"total":1156,"current":1108}
+{"_e":"metro:bundling:progress","_t":1792277661773,"id":"1","progress":0.9492040048368732,"total":1166,"current":1136}
+{"_e":"metro:bundling:progress","_t":1792277661875,"id":"1","progress":0.976471412065404,"total":1183,"current":1169}
+{"_e":"metro:bundling:progress","_t":1792277661979,"id":"1","progress":0.9966301624631381,"total":1186,"current":1184}
+{"_e":"metro:bundling:progress","_t":1792277662580,"id":"1","progress":0.9983143702953798,"total":1186,"current":1185}
+{"_e":"metro:bundling:progress","_t":1792277662695,"id":"1","progress":0.9983186215667731,"total":1189,"current":1188}
+{"_e":"metro:bundling:progress","_t":1792277662812,"id":"1","progress":0.999,"total":1189,"current":1189}
+{"_e":"metro:bundling:progress","_t":1792277662912,"id":"1","progress":0.999,"total":1199,"current":1199}
+{"_e":"metro:bundling:done","_t":1792277663117,"id":"1","total":1199,"ms":7213.0992}
+{"_e":"metro:client_log","_t":1792277670991,"level":"log","data":["📡 ADRESSE DU SERVEUR CONFIGURÉE :","http://192.168.1.100:3001"]}
+{"_e":"metro:client_log","_t":1792277698123,"level":"log","data":["🚀 TENTATIVE D'APPEL : POST http://192.168.1.100:3001/api/register"]}
+{"_e":"metro:client_log","_t":1792277698181,"level":"log","data":["⚠️ Pas de token trouvé (Est-ce que tu es connecté ?)"]}
+{"_e":"metro:client_log","_t":1792277701796,"level":"log","data":["🚀 TENTATIVE D'APPEL : POST http://192.168.1.100:3001/api/login"]}
+{"_e":"metro:client_log","_t":1792277701858,"level":"log","data":["⚠️ Pas de token trouvé (Est-ce que tu es connecté ?)"]}
+{"_e":"metro:client_log","_t":1792277702038,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/dashboard"]}
+{"_e":"metro:client_log","_t":1792277702192,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277706441,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/matches"]}
+{"_e":"metro:client_log","_t":1792277706501,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277706501,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792277706501,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277706501,"level":"log","data":["MATCHES ===>","{\"matches\": [], \"success\": true}"]}
+{"_e":"metro:client_log","_t":1792277706501,"level":"log","data":["PLAYERS ===>","{\"players\": [], \"success\": true}"]}
+{"_e":"metro:client_log","_t":1792277707060,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792277707115,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277708358,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/matches"]}
+{"_e":"metro:client_log","_t":1792277708419,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277708419,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792277708420,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277708420,"level":"log","data":["MATCHES ===>","{\"matches\": [], \"success\": true}"]}
+{"_e":"metro:client_log","_t":1792277708420,"level":"log","data":["PLAYERS ===>","{\"players\": [], \"success\": true}"]}
+{"_e":"metro:client_log","_t":1792277709162,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792277709214,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277714898,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792277714952,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277715461,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/matches"]}
+{"_e":"metro:client_log","_t":1792277715512,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277715512,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792277715512,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277715512,"level":"log","data":["MATCHES ===>","{\"matches\": [], \"success\": true}"]}
+{"_e":"metro:client_log","_t":1792277715512,"level":"log","data":["PLAYERS ===>","{\"players\": [], \"success\": true}"]}
+{"_e":"metro:client_log","_t":1792277722550,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792277722607,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277733020,"level":"log","data":["🚀 TENTATIVE D'APPEL : POST http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792277733079,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277733140,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792277733140,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277743060,"level":"log","data":["🚀 TENTATIVE D'APPEL : POST http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792277743111,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277743157,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792277743157,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277752315,"level":"log","data":["🚀 TENTATIVE D'APPEL : POST http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792277752387,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277752467,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792277752533,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277768752,"level":"log","data":["🚀 TENTATIVE D'APPEL : POST http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792277768813,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277768896,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792277768896,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277779814,"level":"log","data":["🚀 TENTATIVE D'APPEL : POST http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792277779899,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277779957,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792277779957,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277786784,"level":"log","data":["🚀 TENTATIVE D'APPEL : POST http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792277786841,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277786899,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792277786899,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277788568,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792277788627,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277813467,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/matches"]}
+{"_e":"metro:client_log","_t":1792277813530,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277813530,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792277813530,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277813531,"level":"log","data":["MATCHES ===>","{\"matches\": [], \"success\": true}"]}
+{"_e":"metro:client_log","_t":1792277813531,"level":"log","data":["PLAYERS ===>","{\"players\": [{\"__v\": 0, \"_id\": \"6ad3fce5c5c8418233903e54\", \"name\": \"Bono\", \"note\": 3, \"position\": \"GK\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fcefc5c8418233903e57\", \"name\": \"Hakimi\", \"note\": 3, \"position\": \"DEF\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fcf8c5c8418233903e5a\", \"name\": \"Diaz\", \"note\": 3, \"position\": \"ATT\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fd08c5c8418233903e5d\", \"name\": \"Kajoui\", \"note\": 3, \"position\": \"GK\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fd13c5c8418233903e60\", \"name\": \"Naeil\", \"note\": 3, \"position\": \"DEF\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fd1ac5c8418233903e63\", \"name\": \"Ounahi\", \"note\": 3, \"position\": \"ATT\", \"traits\": \"\"}], \"success\": true}"]}
+{"_e":"metro:client_log","_t":1792277821887,"level":"log","data":["🚀 TENTATIVE D'APPEL : POST http://192.168.1.100:3001/api/matches"]}
+{"_e":"metro:client_log","_t":1792277821944,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277821945,"level":"log","data":["create match res","{\"match\": {\"__v\": 0, \"_id\": \"6ad3fd3dc5c8418233903e69\", \"creeLe\": \"2026-10-17T22:57:01.912Z\", \"date\": \"2026-10-17\", \"feuilleDeMatch\": [[Object], [Object], [Object], [Object], [Object], [Object]], \"heure\": \"20:00\", \"localisation\": {\"adresse\": \"\", \"latitude\": null, \"longitude\": null}, \"nom\": \"Match du Jour\", \"prixTotal\": 300, \"terrain\": \"City Foot\"}, \"success\": true}"]}
+{"_e":"metro:client_log","_t":1792277821945,"level":"log","data":["Erreur audio:","[Error: Cannot find module '../../assets/xxx.mp3']"]}
+{"_e":"metro:client_log","_t":1792277829065,"level":"log","data":["🚀 TENTATIVE D'APPEL : PUT http://192.168.1.100:3001/api/matches/6ad3fd3dc5c8418233903e69"]}
+{"_e":"metro:client_log","_t":1792277829115,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277831301,"level":"log","data":["🚀 TENTATIVE D'APPEL : PUT http://192.168.1.100:3001/api/matches/6ad3fd3dc5c8418233903e69"]}
+{"_e":"metro:client_log","_t":1792277831353,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277831901,"level":"log","data":["🚀 TENTATIVE D'APPEL : PUT http://192.168.1.100:3001/api/matches/6ad3fd3dc5c8418233903e69"]}
+{"_e":"metro:client_log","_t":1792277831959,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277832468,"level":"log","data":["🚀 TENTATIVE D'APPEL : PUT http://192.168.1.100:3001/api/matches/6ad3fd3dc5c8418233903e69"]}
+{"_e":"metro:client_log","_t":1792277832540,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277832922,"level":"log","data":["🚀 TENTATIVE D'APPEL : PUT http://192.168.1.100:3001/api/matches/6ad3fd3dc5c8418233903e69"]}
+{"_e":"metro:client_log","_t":1792277832977,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277834667,"level":"log","data":["🚀 TENTATIVE D'APPEL : PUT http://192.168.1.100:3001/api/matches/6ad3fd3dc5c8418233903e69"]}
+{"_e":"metro:client_log","_t":1792277834728,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277845492,"level":"log","data":["🚀 TENTATIVE D'APPEL : PUT http://192.168.1.100:3001/api/matches/6ad3fd3dc5c8418233903e69"]}
+{"_e":"metro:client_log","_t":1792277845560,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277845614,"level":"log","data":["update match res","{\"match\": {\"__v\": 0, \"_id\": \"6ad3fd3dc5c8418233903e69\", \"creeLe\": \"2026-10-17T22:57:01.912Z\", \"date\": \"2026-10-17\", \"feuilleDeMatch\": [[Object], [Object], [Object], [Object], [Object], [Object]], \"heure\": \"20:00\", \"localisation\": {\"adresse\": \"\", \"latitude\": null, \"longitude\": null}, \"nom\": \"Match du Jour\", \"prixTotal\": 300, \"terrain\": \"City Foot\"}, \"success\": true}"]}
+{"_e":"metro:client_log","_t":1792277854434,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792277854488,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277855798,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792277855852,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277856519,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/dashboard"]}
+{"_e":"metro:client_log","_t":1792277856570,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277856985,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/matches"]}
+{"_e":"metro:client_log","_t":1792277857047,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277857047,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792277857047,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277857102,"level":"log","data":["MATCHES ===>","{\"matches\": [{\"__v\": 0, \"_id\": \"6ad3fd3dc5c8418233903e69\", \"creeLe\": \"2026-10-17T22:57:01.912Z\", \"date\": \"2026-10-17\", \"feuilleDeMatch\": [Array], \"heure\": \"20:00\", \"localisation\": [Object], \"nom\": \"Match du Jour\", \"prixTotal\": 300, \"terrain\": \"City Foot\"}], \"success\": true}"]}
+{"_e":"metro:client_log","_t":1792277857102,"level":"log","data":["PLAYERS ===>","{\"players\": [{\"__v\": 0, \"_id\": \"6ad3fce5c5c8418233903e54\", \"name\": \"Bono\", \"note\": 3, \"position\": \"GK\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fcefc5c8418233903e57\", \"name\": \"Hakimi\", \"note\": 3, \"position\": \"DEF\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fcf8c5c8418233903e5a\", \"name\": \"Diaz\", \"note\": 3, \"position\": \"ATT\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fd08c5c8418233903e5d\", \"name\": \"Kajoui\", \"note\": 3, \"position\": \"GK\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fd13c5c8418233903e60\", \"name\": \"Naeil\", \"note\": 3, \"position\": \"DEF\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fd1ac5c8418233903e63\", \"name\": \"Ounahi\", \"note\": 3, \"position\": \"ATT\", \"traits\": \"\"}], \"success\": true}"]}
+{"_e":"metro:client_log","_t":1792277857914,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792277857967,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277860562,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/dashboard"]}
+{"_e":"metro:client_log","_t":1792277860625,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277867100,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/matches"]}
+{"_e":"metro:client_log","_t":1792277867139,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277867139,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792277867139,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277867139,"level":"log","data":["MATCHES ===>","{\"matches\": [{\"__v\": 0, \"_id\": \"6ad3fd3dc5c8418233903e69\", \"creeLe\": \"2026-10-17T22:57:01.912Z\", \"date\": \"2026-10-17\", \"feuilleDeMatch\": [Array], \"heure\": \"20:00\", \"localisation\": [Object], \"nom\": \"Match du Jour\", \"prixTotal\": 300, \"terrain\": \"City Foot\"}], \"success\": true}"]}
+{"_e":"metro:client_log","_t":1792277867139,"level":"log","data":["PLAYERS ===>","{\"players\": [{\"__v\": 0, \"_id\": \"6ad3fce5c5c8418233903e54\", \"name\": \"Bono\", \"note\": 3, \"position\": \"GK\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fcefc5c8418233903e57\", \"name\": \"Hakimi\", \"note\": 3, \"position\": \"DEF\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fcf8c5c8418233903e5a\", \"name\": \"Diaz\", \"note\": 3, \"position\": \"ATT\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fd08c5c8418233903e5d\", \"name\": \"Kajoui\", \"note\": 3, \"position\": \"GK\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fd13c5c8418233903e60\", \"name\": \"Naeil\", \"note\": 3, \"position\": \"DEF\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fd1ac5c8418233903e63\", \"name\": \"Ounahi\", \"note\": 3, \"position\": \"ATT\", \"traits\": \"\"}], \"success\": true}"]}
+{"_e":"metro:client_log","_t":1792277871101,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792277871101,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792277871972,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/dashboard"]}
+{"_e":"metro:client_log","_t":1792277872209,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:bundling:started","_t":1792278491632,"id":"6","platform":"ios","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792278491632,"id":"6","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792278491639,"id":"6","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792278491748,"id":"6","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792278491808,"id":"6","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792278491908,"id":"6","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792278492024,"id":"6","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792278492124,"id":"6","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792278492224,"id":"6","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792278492329,"id":"6","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792278492435,"id":"6","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792278492541,"id":"6","total":1,"ms":908.9306}
+{"_e":"metro:client_log","_t":1792278497237,"level":"log","data":["📡 ADRESSE DU SERVEUR CONFIGURÉE :","http://192.168.1.100:3001"]}
+{"_e":"metro:client_log","_t":1792278497255,"level":"log","data":["Erreur vérification session","[SyntaxError: JSON Parse error: Unexpected character: <]"]}
+{"_e":"metro:client_log","_t":1792278513502,"level":"log","data":["🚀 TENTATIVE D'APPEL : POST http://192.168.1.100:3001/api/login"]}
+{"_e":"metro:client_log","_t":1792278513558,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278513799,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/dashboard"]}
+{"_e":"metro:client_log","_t":1792278513934,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278513934,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/matches"]}
+{"_e":"metro:client_log","_t":1792278513934,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278523461,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792278523530,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278527673,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/matches"]}
+{"_e":"metro:client_log","_t":1792278527703,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278527704,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792278527704,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278527704,"level":"log","data":["MATCHES ===>","{\"matches\": [{\"__v\": 0, \"_id\": \"6ad3fd3dc5c8418233903e69\", \"creeLe\": \"2026-10-17T22:57:01.912Z\", \"date\": \"2026-10-17\", \"feuilleDeMatch\": [Array], \"heure\": \"20:00\", \"localisation\": [Object], \"nom\": \"Match du Jour\", \"prixTotal\": 300, \"terrain\": \"City Foot\"}], \"success\": true}"]}
+{"_e":"metro:client_log","_t":1792278527704,"level":"log","data":["PLAYERS ===>","{\"players\": [{\"__v\": 0, \"_id\": \"6ad3fce5c5c8418233903e54\", \"name\": \"Bono\", \"note\": 3, \"position\": \"GK\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fcefc5c8418233903e57\", \"name\": \"Hakimi\", \"note\": 3, \"position\": \"DEF\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fcf8c5c8418233903e5a\", \"name\": \"Diaz\", \"note\": 3, \"position\": \"ATT\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fd08c5c8418233903e5d\", \"name\": \"Kajoui\", \"note\": 3, \"position\": \"GK\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fd13c5c8418233903e60\", \"name\": \"Naeil\", \"note\": 3, \"position\": \"DEF\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fd1ac5c8418233903e63\", \"name\": \"Ounahi\", \"note\": 3, \"position\": \"ATT\", \"traits\": \"\"}], \"success\": true}"]}
+{"_e":"metro:client_log","_t":1792278528756,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792278528819,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278532139,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/dashboard"]}
+{"_e":"metro:client_log","_t":1792278532187,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278532188,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/matches"]}
+{"_e":"metro:client_log","_t":1792278532188,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278535360,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/matches"]}
+{"_e":"metro:client_log","_t":1792278535389,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278535389,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792278535389,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278535389,"level":"log","data":["MATCHES ===>","{\"matches\": [{\"__v\": 0, \"_id\": \"6ad3fd3dc5c8418233903e69\", \"creeLe\": \"2026-10-17T22:57:01.912Z\", \"date\": \"2026-10-17\", \"feuilleDeMatch\": [Array], \"heure\": \"20:00\", \"localisation\": [Object], \"nom\": \"Match du Jour\", \"prixTotal\": 300, \"terrain\": \"City Foot\"}], \"success\": true}"]}
+{"_e":"metro:client_log","_t":1792278535389,"level":"log","data":["PLAYERS ===>","{\"players\": [{\"__v\": 0, \"_id\": \"6ad3fce5c5c8418233903e54\", \"name\": \"Bono\", \"note\": 3, \"position\": \"GK\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fcefc5c8418233903e57\", \"name\": \"Hakimi\", \"note\": 3, \"position\": \"DEF\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fcf8c5c8418233903e5a\", \"name\": \"Diaz\", \"note\": 3, \"position\": \"ATT\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fd08c5c8418233903e5d\", \"name\": \"Kajoui\", \"note\": 3, \"position\": \"GK\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fd13c5c8418233903e60\", \"name\": \"Naeil\", \"note\": 3, \"position\": \"DEF\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fd1ac5c8418233903e63\", \"name\": \"Ounahi\", \"note\": 3, \"position\": \"ATT\", \"traits\": \"\"}], \"success\": true}"]}
+{"_e":"metro:client_log","_t":1792278536680,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/dashboard"]}
+{"_e":"metro:client_log","_t":1792278536744,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278536744,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/matches"]}
+{"_e":"metro:client_log","_t":1792278536744,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278548515,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792278548575,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278567079,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/dashboard"]}
+{"_e":"metro:client_log","_t":1792278567155,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278567155,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/matches"]}
+{"_e":"metro:client_log","_t":1792278567155,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:bundling:started","_t":1792278571745,"id":"a","platform":"ios","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792278571746,"id":"a","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792278571804,"id":"a","total":1,"ms":58.706}
+{"_e":"metro:client_log","_t":1792278578222,"level":"log","data":["📡 ADRESSE DU SERVEUR CONFIGURÉE :","http://192.168.1.100:3001"]}
+{"_e":"metro:client_log","_t":1792278578251,"level":"log","data":["Erreur vérification session","[SyntaxError: JSON Parse error: Unexpected character: <]"]}
+{"_e":"metro:client_log","_t":1792278618770,"level":"log","data":["🚀 TENTATIVE D'APPEL : POST http://192.168.1.100:3001/api/register"]}
+{"_e":"metro:client_log","_t":1792278618786,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278622054,"level":"log","data":["🚀 TENTATIVE D'APPEL : POST http://192.168.1.100:3001/api/login"]}
+{"_e":"metro:client_log","_t":1792278622124,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278622309,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/dashboard"]}
+{"_e":"metro:client_log","_t":1792278622393,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278622393,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/matches"]}
+{"_e":"metro:client_log","_t":1792278622393,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278627418,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792278627475,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278630033,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/matches"]}
+{"_e":"metro:client_log","_t":1792278630061,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278630062,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792278630062,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278630062,"level":"log","data":["MATCHES ===>","{\"matches\": [{\"__v\": 0, \"_id\": \"6ad3fd3dc5c8418233903e69\", \"creeLe\": \"2026-10-17T22:57:01.912Z\", \"date\": \"2026-10-17\", \"feuilleDeMatch\": [Array], \"heure\": \"20:00\", \"localisation\": [Object], \"nom\": \"Match du Jour\", \"prixTotal\": 300, \"terrain\": \"City Foot\"}], \"success\": true}"]}
+{"_e":"metro:client_log","_t":1792278630062,"level":"log","data":["PLAYERS ===>","{\"players\": [{\"__v\": 0, \"_id\": \"6ad3fce5c5c8418233903e54\", \"name\": \"Bono\", \"note\": 3, \"position\": \"GK\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fcefc5c8418233903e57\", \"name\": \"Hakimi\", \"note\": 3, \"position\": \"DEF\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fcf8c5c8418233903e5a\", \"name\": \"Diaz\", \"note\": 3, \"position\": \"ATT\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fd08c5c8418233903e5d\", \"name\": \"Kajoui\", \"note\": 3, \"position\": \"GK\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fd13c5c8418233903e60\", \"name\": \"Naeil\", \"note\": 3, \"position\": \"DEF\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fd1ac5c8418233903e63\", \"name\": \"Ounahi\", \"note\": 3, \"position\": \"ATT\", \"traits\": \"\"}], \"success\": true}"]}
+{"_e":"metro:client_log","_t":1792278630967,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792278631035,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278633475,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/dashboard"]}
+{"_e":"metro:client_log","_t":1792278633568,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278633568,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/matches"]}
+{"_e":"metro:client_log","_t":1792278633568,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278640039,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/matches"]}
+{"_e":"metro:client_log","_t":1792278640080,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278640080,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792278640080,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278640081,"level":"log","data":["MATCHES ===>","{\"matches\": [{\"__v\": 0, \"_id\": \"6ad3fd3dc5c8418233903e69\", \"creeLe\": \"2026-10-17T22:57:01.912Z\", \"date\": \"2026-10-17\", \"feuilleDeMatch\": [Array], \"heure\": \"20:00\", \"localisation\": [Object], \"nom\": \"Match du Jour\", \"prixTotal\": 300, \"terrain\": \"City Foot\"}], \"success\": true}"]}
+{"_e":"metro:client_log","_t":1792278640081,"level":"log","data":["PLAYERS ===>","{\"players\": [{\"__v\": 0, \"_id\": \"6ad3fce5c5c8418233903e54\", \"name\": \"Bono\", \"note\": 3, \"position\": \"GK\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fcefc5c8418233903e57\", \"name\": \"Hakimi\", \"note\": 3, \"position\": \"DEF\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fcf8c5c8418233903e5a\", \"name\": \"Diaz\", \"note\": 3, \"position\": \"ATT\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fd08c5c8418233903e5d\", \"name\": \"Kajoui\", \"note\": 3, \"position\": \"GK\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fd13c5c8418233903e60\", \"name\": \"Naeil\", \"note\": 3, \"position\": \"DEF\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fd1ac5c8418233903e63\", \"name\": \"Ounahi\", \"note\": 3, \"position\": \"ATT\", \"traits\": \"\"}], \"success\": true}"]}
+{"_e":"metro:client_log","_t":1792278643371,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/dashboard"]}
+{"_e":"metro:client_log","_t":1792278643418,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278643419,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/matches"]}
+{"_e":"metro:client_log","_t":1792278643419,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:bundling:started","_t":1792278770232,"id":"e","platform":"ios","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792278770232,"id":"e","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792278770285,"id":"e","total":1,"ms":52.2669}
+{"_e":"metro:client_log","_t":1792278776435,"level":"log","data":["📡 ADRESSE DU SERVEUR CONFIGURÉE :","http://192.168.1.100:3001"]}
+{"_e":"metro:client_log","_t":1792278776450,"level":"log","data":["Erreur vérification session","[SyntaxError: JSON Parse error: Unexpected character: <]"]}
+{"_e":"metro:client_log","_t":1792278790313,"level":"log","data":["🚀 TENTATIVE D'APPEL : POST http://192.168.1.100:3001/api/login"]}
+{"_e":"metro:client_log","_t":1792278790371,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278798864,"level":"log","data":["🚀 TENTATIVE D'APPEL : POST http://192.168.1.100:3001/api/login"]}
+{"_e":"metro:client_log","_t":1792278798994,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278821238,"level":"log","data":["🚀 TENTATIVE D'APPEL : POST http://192.168.1.100:3001/api/register"]}
+{"_e":"metro:client_log","_t":1792278821287,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278826340,"level":"log","data":["🚀 TENTATIVE D'APPEL : POST http://192.168.1.100:3001/api/register"]}
+{"_e":"metro:client_log","_t":1792278826401,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278832828,"level":"log","data":["🚀 TENTATIVE D'APPEL : POST http://192.168.1.100:3001/api/login"]}
+{"_e":"metro:client_log","_t":1792278832943,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278833210,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/dashboard"]}
+{"_e":"metro:client_log","_t":1792278833316,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278833316,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/matches"]}
+{"_e":"metro:client_log","_t":1792278833316,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278836357,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792278836384,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278837137,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/matches"]}
+{"_e":"metro:client_log","_t":1792278837164,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278837164,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792278837164,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278837164,"level":"log","data":["MATCHES ===>","{\"matches\": [{\"__v\": 0, \"_id\": \"6ad3fd3dc5c8418233903e69\", \"creeLe\": \"2026-10-17T22:57:01.912Z\", \"date\": \"2026-10-17\", \"feuilleDeMatch\": [Array], \"heure\": \"20:00\", \"localisation\": [Object], \"nom\": \"Match du Jour\", \"prixTotal\": 300, \"terrain\": \"City Foot\"}], \"success\": true}"]}
+{"_e":"metro:client_log","_t":1792278837164,"level":"log","data":["PLAYERS ===>","{\"players\": [{\"__v\": 0, \"_id\": \"6ad3fce5c5c8418233903e54\", \"name\": \"Bono\", \"note\": 3, \"position\": \"GK\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fcefc5c8418233903e57\", \"name\": \"Hakimi\", \"note\": 3, \"position\": \"DEF\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fcf8c5c8418233903e5a\", \"name\": \"Diaz\", \"note\": 3, \"position\": \"ATT\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fd08c5c8418233903e5d\", \"name\": \"Kajoui\", \"note\": 3, \"position\": \"GK\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fd13c5c8418233903e60\", \"name\": \"Naeil\", \"note\": 3, \"position\": \"DEF\", \"traits\": \"\"}, {\"__v\": 0, \"_id\": \"6ad3fd1ac5c8418233903e63\", \"name\": \"Ounahi\", \"note\": 3, \"position\": \"ATT\", \"traits\": \"\"}], \"success\": true}"]}
+{"_e":"metro:client_log","_t":1792278838688,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/players"]}
+{"_e":"metro:client_log","_t":1792278838778,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278840889,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/dashboard"]}
+{"_e":"metro:client_log","_t":1792278840960,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"metro:client_log","_t":1792278840960,"level":"log","data":["🚀 TENTATIVE D'APPEL : GET http://192.168.1.100:3001/api/matches"]}
+{"_e":"metro:client_log","_t":1792278840960,"level":"log","data":["🔑 Token ajouté !"]}
+{"_e":"root:init","_t":1792333776585,"format":"v0-jsonl","version":"57.0.27"}
+{"_e":"env:mode","_t":1792333776611,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1792333776669,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1792333804301,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1792333832336,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"expo:dev-tools-plugin:load","_t":1792333839291,"plugins":[]}
+{"_e":"metro:instantiate","_t":1792333855054,"atlas":false,"workers":10,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1792333914909,"id":"1","platform":"web","environment":null,"entry":"index.js"}
+{"_e":"metro:bundling:progress","_t":1792333914909,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792333914914,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792333925115,"id":"1","progress":0.010000000000000002,"total":1,"current":1}
+{"_e":"metro:bundling:progress","_t":1792333925216,"id":"1","progress":0.010000000000000002,"total":3,"current":1}
+{"_e":"metro:bundling:progress","_t":1792333925332,"id":"1","progress":0.04000000000000001,"total":3,"current":2}
+{"_e":"metro:bundling:progress","_t":1792333925445,"id":"1","progress":0.04000000000000001,"total":24,"current":2}
+{"_e":"metro:bundling:progress","_t":1792333925489,"id":"1","progress":0.04000000000000001,"total":24,"current":3}
+{"_e":"metro:bundling:progress","_t":1792333925601,"id":"1","progress":0.04000000000000001,"total":27,"current":3}
+{"_e":"metro:bundling:progress","_t":1792333925663,"id":"1","progress":0.04000000000000001,"total":27,"current":4}
+{"_e":"metro:bundling:progress","_t":1792333925778,"id":"1","progress":0.04000000000000001,"total":38,"current":5}
+{"_e":"metro:bundling:progress","_t":1792333925898,"id":"1","progress":0.04000000000000001,"total":40,"current":7}
+{"_e":"metro:bundling:progress","_t":1792333925999,"id":"1","progress":0.04000000000000001,"total":46,"current":8}
+{"_e":"metro:bundling:progress","_t":1792333926077,"id":"1","progress":0.04000000000000001,"total":46,"current":9}
+{"_e":"metro:bundling:progress","_t":1792333926191,"id":"1","progress":0.04000000000000001,"total":58,"current":10}
+{"_e":"metro:bundling:progress","_t":1792333926280,"id":"1","progress":0.04000000000000001,"total":58,"current":11}
+{"_e":"metro:bundling:progress","_t":1792333926385,"id":"1","progress":0.04000000000000001,"total":109,"current":19}
+{"_e":"metro:bundling:progress","_t":1792333926491,"id":"1","progress":0.051652892561983466,"total":132,"current":30}
+{"_e":"metro:bundling:progress","_t":1792333926608,"id":"1","progress":0.051652892561983466,"total":199,"current":44}
+{"_e":"metro:bundling:progress","_t":1792333926715,"id":"1","progress":0.05191475725044063,"total":237,"current":54}
+{"_e":"metro:bundling:progress","_t":1792333926831,"id":"1","progress":0.05640625,"total":240,"current":57}
+{"_e":"metro:bundling:progress","_t":1792333927631,"id":"1","progress":0.058402777777777776,"total":240,"current":58}
+{"_e":"metro:bundling:progress","_t":1792333927733,"id":"1","progress":0.058402777777777776,"total":249,"current":60}
+{"_e":"metro:bundling:progress","_t":1792333927954,"id":"1","progress":0.06001516104578958,"total":249,"current":61}
+{"_e":"metro:bundling:progress","_t":1792333928055,"id":"1","progress":0.10588309397833208,"total":252,"current":82}
+{"_e":"metro:bundling:progress","_t":1792333928172,"id":"1","progress":0.13177894539313192,"total":292,"current":106}
+{"_e":"metro:bundling:progress","_t":1792333928273,"id":"1","progress":0.15954056017968027,"total":348,"current":139}
+{"_e":"metro:bundling:progress","_t":1792333928372,"id":"1","progress":0.21016566312837462,"total":397,"current":182}
+{"_e":"metro:bundling:progress","_t":1792333928485,"id":"1","progress":0.2373438527284681,"total":429,"current":209}
+{"_e":"metro:bundling:progress","_t":1792333928585,"id":"1","progress":0.3010415850888871,"total":452,"current":248}
+{"_e":"metro:bundling:progress","_t":1792333928686,"id":"1","progress":0.311921017109386,"total":453,"current":253}
+{"_e":"metro:bundling:progress","_t":1792333929513,"id":"1","progress":0.31439166898137993,"total":453,"current":254}
+{"_e":"metro:bundling:progress","_t":1792333929614,"id":"1","progress":0.3236788301595889,"total":457,"current":260}
+{"_e":"metro:bundling:progress","_t":1792333929714,"id":"1","progress":0.3236788301595889,"total":475,"current":264}
+{"_e":"metro:bundling:progress","_t":1792333929827,"id":"1","progress":0.33864575241861455,"total":476,"current":277}
+{"_e":"metro:bundling:progress","_t":1792333929942,"id":"1","progress":0.3404688109124173,"total":509,"current":297}
+{"_e":"metro:bundling:progress","_t":1792333930212,"id":"1","progress":0.3427653899745639,"total":509,"current":298}
+{"_e":"metro:bundling:progress","_t":1792333930312,"id":"1","progress":0.35954473605565135,"total":527,"current":316}
+{"_e":"metro:bundling:progress","_t":1792333930424,"id":"1","progress":0.3956098840040455,"total":566,"current":356}
+{"_e":"metro:bundling:progress","_t":1792333931741,"id":"1","progress":0.3978355329695714,"total":566,"current":357}
+{"_e":"metro:bundling:progress","_t":1792333931842,"id":"1","progress":0.49319257394008725,"total":571,"current":401}
+{"_e":"metro:bundling:progress","_t":1792333931942,"id":"1","progress":0.5530543240560901,"total":593,"current":441}
+{"_e":"metro:bundling:progress","_t":1792333932044,"id":"1","progress":0.5869536940686785,"total":620,"current":475}
+{"_e":"metro:bundling:progress","_t":1792333932144,"id":"1","progress":0.6389972582816599,"total":638,"current":510}
+{"_e":"metro:bundling:progress","_t":1792333932310,"id":"1","progress":0.6468162318867277,"total":659,"current":530}
+{"_e":"metro:bundling:progress","_t":1792333932410,"id":"1","progress":0.6468162318867277,"total":710,"current":571}
+{"_e":"metro:bundling:progress","_t":1792333932510,"id":"1","progress":0.6468162318867277,"total":734,"current":586}
+{"_e":"metro:bundling:progress","_t":1792333932615,"id":"1","progress":0.6468162318867277,"total":734,"current":588}
+{"_e":"metro:bundling:progress","_t":1792333932847,"id":"1","progress":0.6468162318867277,"total":734,"current":589}
+{"_e":"metro:bundling:progress","_t":1792333933538,"id":"1","progress":0.6468162318867277,"total":734,"current":590}
+{"_e":"metro:bundling:progress","_t":1792333933647,"id":"1","progress":0.6500117507950147,"total":738,"current":595}
+{"_e":"metro:bundling:progress","_t":1792333933837,"id":"1","progress":0.6521985003047862,"total":738,"current":596}
+{"_e":"metro:bundling:progress","_t":1792333933939,"id":"1","progress":0.6552246165084002,"total":740,"current":599}
+{"_e":"metro:bundling:progress","_t":1792333934039,"id":"1","progress":0.6758523986312218,"total":742,"current":610}
+{"_e":"metro:bundling:progress","_t":1792333934140,"id":"1","progress":0.7606812753878096,"total":751,"current":655}
+{"_e":"metro:bundling:progress","_t":1792333934240,"id":"1","progress":0.8239053254437869,"total":780,"current":708}
+{"_e":"metro:bundling:progress","_t":1792333934341,"id":"1","progress":0.8645335363634157,"total":812,"current":755}
+{"_e":"metro:bundling:progress","_t":1792333934447,"id":"1","progress":0.8645335363634157,"total":816,"current":755}
+{"_e":"metro:bundling:progress","_t":1792333934669,"id":"1","progress":0.8645335363634157,"total":816,"current":756}
+{"_e":"metro:bundling:progress","_t":1792333934769,"id":"1","progress":0.8645335363634157,"total":816,"current":757}
+{"_e":"metro:bundling:progress","_t":1792333935062,"id":"1","progress":0.8645335363634157,"total":816,"current":758}
+{"_e":"metro:bundling:progress","_t":1792333935161,"id":"1","progress":0.8645335363634157,"total":818,"current":760}
+{"_e":"metro:bundling:progress","_t":1792333935265,"id":"1","progress":0.8653837555678509,"total":846,"current":787}
+{"_e":"metro:bundling:progress","_t":1792333935371,"id":"1","progress":0.8675843490993634,"total":846,"current":788}
+{"_e":"metro:bundling:progress","_t":1792333935405,"id":"1","progress":0.8697877370353603,"total":846,"current":789}
+{"_e":"metro:bundling:progress","_t":1792333935513,"id":"1","progress":0.8978556408626339,"total":858,"current":813}
+{"_e":"metro:bundling:progress","_t":1792333935637,"id":"1","progress":0.9000657462195923,"total":858,"current":814}
+{"_e":"metro:bundling:progress","_t":1792333935739,"id":"1","progress":0.9022785683624844,"total":858,"current":815}
+{"_e":"metro:bundling:progress","_t":1792333935809,"id":"1","progress":0.9044941072913101,"total":858,"current":816}
+{"_e":"metro:bundling:progress","_t":1792333935909,"id":"1","progress":0.9792033410627784,"total":861,"current":852}
+{"_e":"metro:bundling:progress","_t":1792333936009,"id":"1","progress":0.9930995030686572,"total":868,"current":865}
+{"_e":"metro:bundling:progress","_t":1792333936120,"id":"1","progress":0.9976971798084479,"total":868,"current":867}
+{"_e":"metro:bundling:progress","_t":1792333937315,"id":"1","progress":0.999,"total":868,"current":868}
+{"_e":"metro:bundling:progress","_t":1792333937422,"id":"1","progress":0.999,"total":870,"current":869}
+{"_e":"metro:bundling:progress","_t":1792333937610,"id":"1","progress":0.999,"total":870,"current":870}
+{"_e":"metro:bundling:done","_t":1792333938264,"id":"1","total":870,"ms":23355.4322}
+{"_e":"metro:client_log","_t":1792333938676,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1792333938676,"level":"warn","data":["\"shadow*\" style props are deprecated. Use \"boxShadow\"."]}
+{"_e":"metro:client_log","_t":1792333938677,"level":"log","data":["📡 ADRESSE DU SERVEUR CONFIGURÉE :","http://192.168.1.100:3001"]}
+{"_e":"metro:client_log","_t":1792333939637,"level":"error","data":["[TypeError: (0 , _reactNativeWebDistIndex.codegenNativeComponent) is not a function]","\n\n\u001b[1mCode: NativeComponentGooglePolygon.ts\u001b[22m\n\u001b[0m \u001b[90m 100 |\u001b[39m }\n \u001b[90m 101 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 102 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mdefault\u001b[39m codegenNativeComponent\u001b[33m<\u001b[39m\u001b[33mPolygonFabricNativeProps\u001b[39m\u001b[33m>\u001b[39m(\n \u001b[90m     |\u001b[39m                                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 103 |\u001b[39m   \u001b[32m'RNMapsGooglePolygon'\u001b[39m\u001b[33m,\u001b[39m\n \u001b[90m 104 |\u001b[39m   {}\u001b[33m,\u001b[39m\n \u001b[90m 105 |\u001b[39m ) \u001b[36mas\u001b[39m \u001b[33mHostComponent\u001b[39m\u001b[33m<\u001b[39m\u001b[33mPolygonFabricNativeProps\u001b[39m\u001b[33m>\u001b[39m\u001b[33m;\u001b[39m\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[2m\u001b[90m  <global> (node_modules\\react-native-maps\\src\\specs\\NativeComponentGooglePolygon.ts:102:38)\u001b[39m\u001b[22m\n\u001b[2m\u001b[90m  loadModuleImplementation (node_modules\\expo\\node_modules\\@expo\\cli\\build\\metro-require\\require.js:248:36)\u001b[39m\u001b[22m\n\u001b[2m\u001b[90m  guardedLoadModule (node_modules\\expo\\node_modules\\@expo\\cli\\build\\metro-require\\require.js:163:16)\u001b[39m\u001b[22m\n\u001b[2m\u001b[90m  metroRequire (node_modules\\expo\\node_modules\\@expo\\cli\\build\\metro-require\\require.js:74:75)\u001b[39m\u001b[22m\n\u001b[2m\u001b[90m  <global> (node_modules\\react-native-maps\\src\\decorateMapComponent.ts:23)\u001b[39m\u001b[22m\n\u001b[2m\u001b[90m  loadModuleImplementation (node_modules\\expo\\node_modules\\@expo\\cli\\build\\metro-require\\require.js:248:36)\u001b[39m\u001b[22m\n\u001b[2m\u001b[90m  guardedLoadModule (node_modules\\expo\\node_modules\\@expo\\cli\\build\\metro-require\\require.js:163:16)\u001b[39m\u001b[22m\n\u001b[2m\u001b[90m  metroRequire (node_modules\\expo\\node_modules\\@expo\\cli\\build\\metro-require\\require.js:74:75)\u001b[39m\u001b[22m\n\u001b[2m\u001b[90m  <global> (node_modules\\react-native-maps\\src\\MapMarker.tsx:11)\u001b[39m\u001b[22m\n\u001b[2m\u001b[90m  loadModuleImplementation (node_modules\\expo\\node_modules\\@expo\\cli\\build\\metro-require\\require.js:248:36)\u001b[39m\u001b[22m"]}
+{"_e":"root:init","_t":1795391807601,"format":"v0-jsonl","version":"57.0.27"}
+{"_e":"env:mode","_t":1795391807604,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1795391807606,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1795391813328,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1795391818125,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"expo:dev-tools-plugin:load","_t":1795391822068,"plugins":[]}
+{"_e":"metro:instantiate","_t":1795391836304,"atlas":false,"workers":10,"host":"::","port":8081}
+{"_e":"metro:client_log","_t":1795391969713,"level":"error","data":["Project is incompatible with this version of Expo Go\n\n• The installed version of Expo Go is for SDK 58.0.0.\n• The project you opened uses SDK 57.\n\nHow to fix this error:\n\nEither upgrade this project to SDK 58.0.0, or launch it in an iOS simulator. It is not possible to install an older version of Expo Go for iOS devices, only the latest version is supported.\n\n[Learn how to upgrade to SDK 58.](https://docs.expo.dev/workflow/upgrading-expo-sdk-walkthrough/)\n\n[https://expo.dev/go?sdkVersion=57&platform=ios&device=false](Learn how to install Expo Go for SDK 57 in an iOS Simulator.)"]}
+{"_e":"metro:client_log","_t":1795391969749,"level":"error","data":["Project is incompatible with this version of Expo Go\n\n• The installed version of Expo Go is for SDK 58.0.0.\n• The project you opened uses SDK 57.\n\nHow to fix this error:\n\nEither upgrade this project to SDK 58.0.0, or launch it in an iOS simulator. It is not possible to install an older version of Expo Go for iOS devices, only the latest version is supported.\n\n[Learn how to upgrade to SDK 58.](https://docs.expo.dev/workflow/upgrading-expo-sdk-walkthrough/)\n\n[https://expo.dev/go?sdkVersion=57&platform=ios&device=false](Learn how to install Expo Go for SDK 57 in an iOS Simulator.)"]}

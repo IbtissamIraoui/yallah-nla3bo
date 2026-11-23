@@ -6,4 +6,3 @@ export declare const VideoView: React.ForwardRefExoticComponent<{
     player?: VideoPlayer;
 } & VideoViewProps & React.RefAttributes<unknown>>;
 export default VideoView;
-//# sourceMappingURL=VideoView.web.d.ts.map

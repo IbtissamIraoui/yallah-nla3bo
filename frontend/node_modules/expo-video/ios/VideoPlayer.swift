@@ -16,7 +16,7 @@ internal final class VideoPlayer: SharedRef<AVPlayer>, Hashable, VideoPlayerObse
   private let didRelease = Mutex(false)
 
   var loop = false
-  var audioMixingMode: AudioMixingMode = .doNotMix {
+  var audioMixingMode: AudioMixingMode = .auto {
     didSet {
       if oldValue != audioMixingMode {
         VideoManager.shared.setAppropriateAudioSessionOrWarn()
@@ -142,6 +142,17 @@ internal final class VideoPlayer: SharedRef<AVPlayer>, Hashable, VideoPlayerObse
     }
   }
 
+  var maxResolution: VideoSize? {
+    didSet {
+      let resolution = maxResolution?.toCGSize() ?? .zero
+      if resolution == .zero && maxResolution != nil {
+        appContext?.jsLogger.warn("[expo-video] Ignoring invalid `maxResolution`: `width` and `height` must both be greater than zero. Clearing the resolution limit.")
+        maxResolution = nil
+      }
+      ref.currentItem?.preferredMaximumResolution = resolution
+    }
+  }
+
   var bufferedPosition: Double {
     return getBufferedPosition()
   }
@@ -206,7 +217,7 @@ internal final class VideoPlayer: SharedRef<AVPlayer>, Hashable, VideoPlayerObse
 
     // TODO: @behenate (SDK 55) completely remove support for synchronous `replaceCurrentItem` - it's not practical in any circumstance
     if let url = videoSource.uri, url.isPHAssetUrl {
-      throw PlayerItemLoadException("The provided uri \(url) is a local PHAsset URL. This kind of URL can only be loaded asynchrynously. Use `VideoPlayer.replaceAsync` in order to load this item")
+      throw PlayerItemLoadException("The provided uri \(url) is a local PHAsset URL. This kind of URL can only be loaded asynchronously. Use `VideoPlayer.replaceAsync` in order to load this item")
     }
 
     if let drm = videoSource.drm {
@@ -330,12 +341,13 @@ internal final class VideoPlayer: SharedRef<AVPlayer>, Hashable, VideoPlayerObse
       return
     }
 
+    observer?.notifyPlayerDeinit(player: self)
     observer?.cleanup()
     observer = nil
     NowPlayingManager.shared.unregisterPlayer(self)
     VideoManager.shared.unregister(videoPlayer: self)
 
-    videoSourceLoader.cancelCurrentTask()
+    videoSourceLoader.close()
     tracksLoadingTask?.cancel()
 
     // We have to replace from the main thread because of KVOs (see comment in VideoSourceLoader).
@@ -420,6 +432,7 @@ internal final class VideoPlayer: SharedRef<AVPlayer>, Hashable, VideoPlayerObse
     )
     safeEmit(event: "sourceChange", payload: payload)
     newVideoPlayerItem?.preferredForwardBufferDuration = bufferOptions.preferredForwardBufferDuration
+    newVideoPlayerItem?.preferredMaximumResolution = maxResolution?.toCGSize() ?? .zero
   }
 
   func onTimeUpdate(player: AVPlayer, timeUpdate: TimeUpdate) {

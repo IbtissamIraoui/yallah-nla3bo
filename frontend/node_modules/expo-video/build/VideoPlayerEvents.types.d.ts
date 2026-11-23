@@ -174,7 +174,7 @@ export type TimeUpdateEventPayload = {
     currentOffsetFromLive: number | null;
     /**
      * Float value indicating how far the player has buffered the video in seconds.
-     * Same as the [`bufferedPosition`](#bufferedPosition) property.
+     * Same as the [`bufferedPosition`](#bufferedposition) property.
      * @platform android
      * @platform ios
      */
@@ -275,4 +275,3 @@ export type IsExternalPlaybackActiveChangeEventPayload = {
     oldIsExternalPlaybackActive?: boolean;
 };
 export {};
-//# sourceMappingURL=VideoPlayerEvents.types.d.ts.map

@@ -1,12 +1,11 @@
-import NativeVideoModule from './NativeVideoModule';
+import NativeVideoModule from './ExpoVideo';
 /**
  * Returns whether the current device supports Picture in Picture (PiP) mode.
  *
  * @returns A `boolean` which is `true` if the device supports PiP mode, and `false` otherwise.
  * @platform android
  * @platform ios
- */
-export function isPictureInPictureSupported() {
+ */ export function isPictureInPictureSupported() {
     return NativeVideoModule.isPictureInPictureSupported();
 }
 /**
@@ -16,8 +15,7 @@ export function isPictureInPictureSupported() {
  * @returns A promise that fulfills after the cache has been cleaned.
  * @platform android
  * @platform ios
- */
-export function clearVideoCacheAsync() {
+ */ export function clearVideoCacheAsync() {
     return NativeVideoModule.clearVideoCacheAsync();
 }
 /**
@@ -28,8 +26,7 @@ export function clearVideoCacheAsync() {
  * @returns A promise that fulfills after the cache size has been set.
  * @platform android
  * @platform ios
- */
-export function setVideoCacheSizeAsync(sizeBytes) {
+ */ export function setVideoCacheSizeAsync(sizeBytes) {
     return NativeVideoModule.setVideoCacheSizeAsync(sizeBytes);
 }
 /**
@@ -37,8 +34,8 @@ export function setVideoCacheSizeAsync(sizeBytes) {
  *
  * @platform android
  * @platform ios
- */
-export function getCurrentVideoCacheSize() {
+ */ export function getCurrentVideoCacheSize() {
     return NativeVideoModule.getCurrentVideoCacheSize();
 }
+
 //# sourceMappingURL=VideoModule.js.map

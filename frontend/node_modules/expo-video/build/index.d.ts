@@ -8,4 +8,3 @@ export { default as VideoAirPlayButton } from './VideoAirPlayButton';
 export type * from './VideoPlayer.types';
 export type * from './VideoPlayerEvents.types';
 export type * from './VideoAirPlayButton.types';
-//# sourceMappingURL=index.d.ts.map

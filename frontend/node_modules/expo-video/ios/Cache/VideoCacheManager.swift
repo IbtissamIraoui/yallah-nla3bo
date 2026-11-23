@@ -164,6 +164,11 @@ class VideoCacheManager {
     }
   }
 
+  private func isAuxiliaryCacheFile(_ url: URL) -> Bool {
+    let s = url.absoluteString
+    return s.hasSuffix(Self.mediaInfoSuffix) || s.hasSuffix(CacheVariantIndex.fileSuffix)
+  }
+
   private func getCacheDirectory() -> URL? {
     let cacheDirs = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)
     if let cacheDir = cacheDirs.first {
@@ -182,7 +187,7 @@ class VideoCacheManager {
       includingPropertiesForKeys: [.contentAccessDateKey, .contentModificationDateKey],
       options: .skipsHiddenFiles)
     ) ?? []
-    return fileUrls.filter { !$0.absoluteString.hasSuffix(Self.mediaInfoSuffix) }
+    return fileUrls.filter { !isAuxiliaryCacheFile($0) }
   }
 
   // Only the set lookup is locked: the lock is also taken from `MediaFileHandle.deinit` on arbitrary

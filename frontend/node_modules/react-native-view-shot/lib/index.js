@@ -3,7 +3,7 @@ import { useRef, useCallback, useEffect, useMemo, forwardRef, } from "react";
 import { View, Platform, findNodeHandle, } from "react-native";
 import RNViewShot from "./RNViewShot";
 const neverEndingPromise = new Promise(() => { });
-const acceptedFormats = ["png", "jpg"].concat(Platform.OS === "android" ? ["webm", "raw"] : []);
+const acceptedFormats = ["png", "jpg"].concat(Platform.OS === "android" ? ["webp", "webm", "raw"] : []);
 const acceptedResults = ["tmpfile", "base64", "data-uri"].concat(Platform.OS === "android" ? ["zip-base64"] : []);
 const defaultOptions = {
     format: "png",
@@ -20,16 +20,21 @@ function validateOptions(input) {
     };
     const errors = [];
     if ("width" in options &&
-        (typeof options.width !== "number" || options.width <= 0)) {
+        (typeof options.width !== "number" ||
+            !Number.isFinite(options.width) ||
+            options.width <= 0)) {
         errors.push("option width should be a positive number");
         delete options.width;
     }
     if ("height" in options &&
-        (typeof options.height !== "number" || options.height <= 0)) {
+        (typeof options.height !== "number" ||
+            !Number.isFinite(options.height) ||
+            options.height <= 0)) {
         errors.push("option height should be a positive number");
         delete options.height;
     }
     if (typeof options.quality !== "number" ||
+        !Number.isFinite(options.quality) ||
         options.quality < 0 ||
         options.quality > 1) {
         errors.push("option quality should be a number between 0.0 and 1.0");
@@ -37,22 +42,30 @@ function validateOptions(input) {
     }
     if (typeof options.snapshotContentContainer !== "boolean") {
         errors.push("option snapshotContentContainer should be a boolean");
+        options.snapshotContentContainer = defaultOptions.snapshotContentContainer;
     }
     if (typeof options.handleGLSurfaceViewOnAndroid !== "boolean") {
         errors.push("option handleGLSurfaceViewOnAndroid should be a boolean");
+        options.handleGLSurfaceViewOnAndroid =
+            defaultOptions.handleGLSurfaceViewOnAndroid;
     }
     if (acceptedFormats.indexOf(options.format || "") === -1) {
+        const badFormat = options.format;
         options.format = defaultOptions.format;
         errors.push("option format '" +
-            options.format +
+            badFormat +
             "' is not in valid formats: " +
             acceptedFormats.join(" | "));
     }
+    else if (options.format === "webm") {
+        errors.push("option format 'webm' is deprecated and will be removed in a future version. Use 'webp' instead (the encoded data has always been WEBP, only the extension was misnamed).");
+    }
     if (acceptedResults.indexOf(options.result || "") === -1) {
+        const badResult = options.result;
         options.result = defaultOptions.result;
         errors.push("option result '" +
-            options.result +
-            "' is not in valid formats: " +
+            badResult +
+            "' is not a valid result: " +
             acceptedResults.join(" | "));
     }
     return { options, errors };
@@ -62,13 +75,11 @@ export function captureRef(view, optionsObject) {
         console.warn("react-native-view-shot: RNViewShot is undefined. Make sure the library is linked on the native side.");
         throw new Error("react-native-view-shot: NativeModules.RNViewShot is undefined. Make sure the library is linked on the native side.");
     }
-    let viewHandle = view;
-    if (view && typeof view === "object" && "current" in view && view.current) {
-        viewHandle = view.current;
-        if (!viewHandle) {
-            return Promise.reject(new Error("ref.current is null"));
-        }
-    }
+    let viewHandle = typeof view === "number"
+        ? view
+        : view && typeof view === "object" && "current" in view
+            ? view.current
+            : view;
     if (Platform.OS !== "web" && typeof viewHandle !== "number") {
         const node = findNodeHandle(viewHandle);
         if (!node) {
@@ -77,13 +88,11 @@ export function captureRef(view, optionsObject) {
         viewHandle = node;
     }
     const { options, errors } = validateOptions(optionsObject);
-    if (__DEV__ && errors.length > 0) {
+    if (errors.length > 0) {
         console.warn("react-native-view-shot: bad options:\n" +
             errors.map(e => `- ${e}`).join("\n"));
     }
-    if (__DEV__ &&
-        Platform.OS === "windows" &&
-        optionsObject?.snapshotContentContainer) {
+    if (Platform.OS === "windows" && optionsObject?.snapshotContentContainer) {
         console.warn("react-native-view-shot: `snapshotContentContainer` is not supported on Windows. The option is ignored; only the visible viewport will be captured.");
     }
     return RNViewShot.captureRef(viewHandle, options);
@@ -104,7 +113,7 @@ export function captureScreen(optionsObject) {
         throw new Error("react-native-view-shot: NativeModules.RNViewShot is undefined. Make sure the library is linked on the native side.");
     }
     const { options, errors } = validateOptions(optionsObject);
-    if (__DEV__ && errors.length > 0) {
+    if (errors.length > 0) {
         console.warn("react-native-view-shot: bad options:\n" +
             errors.map(e => `- ${e}`).join("\n"));
     }

@@ -1,8 +1,6 @@
 import { TurboModuleRegistry, NativeModules } from "react-native";
-// Support both old and new architecture
-const isTurboModuleEnabled = global.__turboModuleProxy != null;
-const RNViewShotModule = isTurboModuleEnabled
-    ? TurboModuleRegistry.getEnforcing("RNViewShot")
-    : NativeModules.RNViewShot;
+// In bridgeless mode (RN 0.79+) __turboModuleProxy is not set; use
+// TurboModuleRegistry as primary and fall back to legacy NativeModules.
+const RNViewShotModule = TurboModuleRegistry.get("RNViewShot") ?? NativeModules.RNViewShot;
 export default RNViewShotModule;
 //# sourceMappingURL=NativeRNViewShot.js.map

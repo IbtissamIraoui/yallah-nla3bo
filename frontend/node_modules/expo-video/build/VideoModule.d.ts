@@ -32,4 +32,3 @@ export declare function setVideoCacheSizeAsync(sizeBytes: number): Promise<void>
  * @platform ios
  */
 export declare function getCurrentVideoCacheSize(): number;
-//# sourceMappingURL=VideoModule.d.ts.map

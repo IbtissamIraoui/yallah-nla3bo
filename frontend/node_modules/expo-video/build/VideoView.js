@@ -1,6 +1,6 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { PureComponent, createRef } from 'react';
-import NativeVideoModule from './NativeVideoModule';
+import NativeVideoModule from './ExpoVideo';
 import NativeVideoView, { NativeTextureVideoView } from './NativeVideoView';
 /**
  * Returns whether the current device supports Picture in Picture (PiP) mode.
@@ -11,77 +11,79 @@ import NativeVideoView, { NativeTextureVideoView } from './NativeVideoView';
  * @platform android
  * @platform ios
  * @platform web
- */
-export function isPictureInPictureSupported() {
+ */ export function isPictureInPictureSupported() {
     return NativeVideoModule.isPictureInPictureSupported();
 }
 export class VideoView extends PureComponent {
     /**
-     * A reference to the underlying native view. On web it is a reference to the HTMLVideoElement.
-     */
-    nativeRef = createRef();
+   * A reference to the underlying native view. On web it is a reference to the HTMLVideoElement.
+   */ nativeRef = /*#__PURE__*/ createRef();
     /**
-     * Enters fullscreen mode.
-     */
-    async enterFullscreen() {
+   * Enters fullscreen mode.
+   */ async enterFullscreen() {
         return await this.nativeRef.current?.enterFullscreen();
     }
     /**
-     * Exits fullscreen mode.
-     *
-     * > **Note:** On Android the JS runtime is paused when the `VideoView` is in fullscreen mode. Because of this `exitFullscreen` will only work when called from a native listener - see the example below.
-     *
-     * @example
-     * ```tsx
-     *   const ref = useRef<VideoView>()
-     *   const player = useVideoPlayer(source)
-     *
-     *   // This will work on all platforms
-     *   useEventListener(player, 'playToEnd', () => {
-     *     ref.current?.exitFullscreen();
-     *   });
-     *
-     *   // This will not work on Android
-     *   const enterAndExit = useCallback(() => {
-     *     setTimeout(() => {
-     *       ref.current?.exitFullscreen()
-     *     }, 5000)
-     *     ref.current?.enterFullscreen()
-     *   },[])
-     * ```
-     */
-    async exitFullscreen() {
+   * Exits fullscreen mode.
+   *
+   * > **Note:** On Android the JS runtime is paused when the `VideoView` is in fullscreen mode. Because of this `exitFullscreen` will only work when called from a native listener - see the example below.
+   *
+   * @example
+   * ```tsx
+   *   const ref = useRef<VideoView>()
+   *   const player = useVideoPlayer(source)
+   *
+   *   // This will work on all platforms
+   *   useEventListener(player, 'playToEnd', () => {
+   *     ref.current?.exitFullscreen();
+   *   });
+   *
+   *   // This will not work on Android
+   *   const enterAndExit = useCallback(() => {
+   *     setTimeout(() => {
+   *       ref.current?.exitFullscreen()
+   *     }, 5000)
+   *     ref.current?.enterFullscreen()
+   *   },[])
+   * ```
+   */ async exitFullscreen() {
         return await this.nativeRef.current?.exitFullscreen();
     }
     /**
-     * Enters Picture in Picture (PiP) mode. Throws an exception if the device does not support PiP.
-     * > **Note:** Only one player can be in Picture in Picture (PiP) mode at a time.
-     *
-     * > **Note:** The `supportsPictureInPicture` property of the [config plugin](#configuration-in-app-config)
-     * > has to be configured for the PiP to work.
-     * @platform android
-     * @platform ios
-     * @platform web
-     */
-    async startPictureInPicture() {
+   * Enters Picture in Picture (PiP) mode. Throws an exception if the device does not support PiP.
+   * > **Note:** Only one player can be in Picture in Picture (PiP) mode at a time.
+   *
+   * > **Note:** The `supportsPictureInPicture` property of the [config plugin](#configuration-in-app-config)
+   * > has to be configured for the PiP to work.
+   * @platform android
+   * @platform ios
+   * @platform web
+   */ async startPictureInPicture() {
         return await this.nativeRef.current?.startPictureInPicture();
     }
     /**
-     * Exits Picture in Picture (PiP) mode.
-     * @platform android
-     * @platform ios
-     * @platform web
-     */
-    async stopPictureInPicture() {
+   * Exits Picture in Picture (PiP) mode.
+   * @platform android
+   * @platform ios
+   * @platform web
+   */ async stopPictureInPicture() {
         return await this.nativeRef.current?.stopPictureInPicture();
     }
     render() {
         const { player, ...props } = this.props;
         const playerId = player ? getPlayerId(player) : null;
         if (NativeTextureVideoView && this.props.surfaceType === 'textureView') {
-            return _jsx(NativeTextureVideoView, { ...props, player: playerId, ref: this.nativeRef });
+            return /*#__PURE__*/ _jsx(NativeTextureVideoView, {
+                ...props,
+                player: playerId,
+                ref: this.nativeRef
+            });
         }
-        return _jsx(NativeVideoView, { ...props, player: playerId, ref: this.nativeRef });
+        return /*#__PURE__*/ _jsx(NativeVideoView, {
+            ...props,
+            player: playerId,
+            ref: this.nativeRef
+        });
     }
 }
 // Temporary solution to pass the shared object ID instead of the player object.
@@ -97,4 +99,5 @@ function getPlayerId(player) {
     }
     return null;
 }
+
 //# sourceMappingURL=VideoView.js.map

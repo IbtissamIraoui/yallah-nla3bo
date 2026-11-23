@@ -1,4 +1,4 @@
-import React, { ReactNode, RefObject } from "react";
+import React, { ReactNode } from "react";
 import { View, StyleProp, ViewStyle, LayoutChangeEvent } from "react-native";
 export interface CaptureOptions {
     /**
@@ -15,9 +15,11 @@ export interface CaptureOptions {
      */
     height?: number;
     /**
-     * either png or jpg or webm (Android). Defaults to png. raw is a ARGB array of image pixels.
+     * either png, jpg, webp (Android), or raw (Android, ARGB pixel array). Defaults to png.
+     * `webm` is accepted as a deprecated alias for `webp` (it has always produced WEBP-encoded
+     * data — the extension was misnamed).
      */
-    format?: "jpg" | "png" | "webm" | "raw";
+    format?: "jpg" | "png" | "webp" | "webm" | "raw";
     /**
      * the quality. 0.0 - 1.0 (default). (only available on lossy formats like jpg)
      */
@@ -55,7 +57,7 @@ export interface ViewShotProperties {
      * - if not defined (default). the capture is not automatic and you need to use the ref and call capture()
      *   yourself.
      * - "mount". Capture the view once at mount. (It is important to understand image loading won't be waited, in
-     *   such case you want to use "none" with viewShotRef.capture() after Image#onLoad.)
+     *   such case omit captureMode and call viewShotRef.current.capture() after Image#onLoad.)
      * - "continuous" EXPERIMENTAL, this will capture A LOT of images continuously. For very specific use-cases.
      * - "update" EXPERIMENTAL, this will capture images each time React redraw (on did update). For very specific
      *   use-cases.
@@ -82,7 +84,11 @@ export interface ViewShotProperties {
      */
     style?: StyleProp<ViewStyle>;
 }
-export declare function captureRef<T = any>(view: number | React.ReactInstance | RefObject<T> | null, optionsObject?: CaptureOptions): Promise<string>;
+interface HostElement {
+    readonly nodeType: number;
+}
+type CaptureTarget = number | React.Component | HostElement | React.RefObject<React.Component | HostElement | null> | null;
+export declare function captureRef(view: CaptureTarget, optionsObject?: CaptureOptions): Promise<string>;
 export declare function releaseCapture(uri: string): void;
 export declare function captureScreen(optionsObject?: CaptureOptions): Promise<string>;
 /**
@@ -93,7 +99,7 @@ export declare function captureScreen(optionsObject?: CaptureOptions): Promise<s
  * method is attached to that node for the imperative `ref.current.capture()`
  * usage.
  */
-export type ViewShotRef = View & {
+export type ViewShotRef = React.ComponentRef<typeof View> & {
     capture: () => Promise<string>;
 };
 declare const ViewShotComponent: React.ForwardRefExoticComponent<ViewShotProperties & React.RefAttributes<ViewShotRef>>;

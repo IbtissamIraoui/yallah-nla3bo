@@ -6,8 +6,17 @@ import { View } from 'react-native';
  *
  * > When using this view, make sure that the [`allowsExternalPlayback`](#allowsexternalplayback) player property is set to `true`.
  * @platform ios
- */
-export default function VideoAirPlayButton(props) {
-    return _jsx(View, { ...props, style: [{ minWidth: 30, minHeight: 30 }, props.style] });
+ */ export default function VideoAirPlayButton(props) {
+    return /*#__PURE__*/ _jsx(View, {
+        ...props,
+        style: [
+            {
+                minWidth: 30,
+                minHeight: 30
+            },
+            props.style
+        ]
+    });
 }
+
 //# sourceMappingURL=VideoAirPlayButton.js.map

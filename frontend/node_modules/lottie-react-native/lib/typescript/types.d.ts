@@ -40,7 +40,7 @@ export interface LottieViewProps {
      */
     source: string | AnimationObject | {
         uri: string;
-    };
+    } | number;
     /**
      * A number between 0 and 1, or an `Animated` number between 0 and 1. This number
      * represents the normalized progress of the animation. If you update this prop, the
@@ -133,6 +133,13 @@ export interface LottieViewProps {
      * @platform android
      */
     enableMergePathsAndroidForKitKatAndAbove?: boolean;
+    /**
+     * A boolean flag to apply opacity to layers instead of shapes on Android.
+     * This is more accurate when translucent shapes overlap, but may impact performance.
+     *
+     * @platform android
+     */
+    applyOpacityToLayersAndroid?: boolean;
     /**
      * A boolean flag to enable safe mode which wraps the draw call with a try catch on Android
      * @platform android

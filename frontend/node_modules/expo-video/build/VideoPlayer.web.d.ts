@@ -1,7 +1,7 @@
-import type { BufferOptions, PlayerError, VideoPlayerStatus, VideoSource, VideoPlayer, SubtitleTrack, AudioMixingMode, VideoTrack, AudioTrack, ScrubbingModeOptions, SeekTolerance } from './VideoPlayer.types';
+import type { BufferOptions, PlayerError, PlayerBuilderOptions, VideoPlayerStatus, VideoSource, VideoPlayer, SubtitleTrack, AudioMixingMode, VideoTrack, AudioTrack, ScrubbingModeOptions, SeekTolerance, VideoSize } from './VideoPlayer.types';
 import type { VideoPlayerEvents } from './VideoPlayerEvents.types';
 import type { VideoThumbnail } from './VideoThumbnail';
-export declare function useVideoPlayer(source: VideoSource, setup?: (player: VideoPlayer) => void): VideoPlayer;
+export declare function useVideoPlayer(source: VideoSource, setup?: (player: VideoPlayer) => void, _playerBuilderOptions?: PlayerBuilderOptions): VideoPlayer;
 export declare function getSourceUri(source?: VideoSource): string | null;
 export declare function createVideoPlayer(source: VideoSource): VideoPlayer;
 export default class VideoPlayerWeb extends globalThis.expo.SharedObject<VideoPlayerEvents> implements VideoPlayer {
@@ -18,7 +18,7 @@ export default class VideoPlayerWeb extends globalThis.expo.SharedObject<VideoPl
     _preservesPitch: boolean;
     _status: VideoPlayerStatus;
     _error: PlayerError | null;
-    _timeUpdateLoop: number | null;
+    _timeUpdateLoop: ReturnType<typeof setTimeout> | null;
     _timeUpdateEventInterval: number;
     audioMixingMode: AudioMixingMode;
     allowsExternalPlayback: boolean;
@@ -34,6 +34,7 @@ export default class VideoPlayerWeb extends globalThis.expo.SharedObject<VideoPl
     availableAudioTracks: AudioTrack[];
     videoTrack: VideoTrack | null;
     availableVideoTracks: VideoTrack[];
+    maxResolution: VideoSize | null;
     isExternalPlaybackActive: boolean;
     keepScreenOnWhilePlaying: boolean;
     seekTolerance: SeekTolerance;
@@ -76,4 +77,3 @@ export default class VideoPlayerWeb extends globalThis.expo.SharedObject<VideoPl
     _emitOnce<EventName extends keyof VideoPlayerEvents>(eventSource: HTMLVideoElement, eventName: EventName, ...args: Parameters<VideoPlayerEvents[EventName]>): void;
     _addListeners(video: HTMLVideoElement): void;
 }
-//# sourceMappingURL=VideoPlayer.web.d.ts.map

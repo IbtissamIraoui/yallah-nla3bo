@@ -1,43 +1,53 @@
 {
   "name": "expo-video",
-  "title": "Expo Video",
-  "version": "57.0.5",
+  "version": "58.0.14",
   "description": "A cross-platform, performant video component for React Native and Expo with Web support",
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
-  "sideEffects": false,
+  "keywords": [
+    "expo",
+    "player",
+    "react-native",
+    "video"
+  ],
   "homepage": "https://docs.expo.dev/versions/latest/sdk/video/",
+  "license": "MIT",
+  "author": "650 Industries, Inc.",
   "repository": {
     "type": "git",
     "url": "https://github.com/expo/expo.git",
     "directory": "packages/expo-video"
   },
-  "keywords": [
-    "react-native",
-    "expo",
-    "video",
-    "player"
-  ],
-  "author": "650 Industries, Inc.",
-  "license": "MIT",
-  "dependencies": {},
+  "sideEffects": false,
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "devDependencies": {
+    "@expo/internal-scripts": "58.0.6",
+    "@testing-library/react-native": "^14.0.1",
+    "@types/jest": "^30.0.0",
     "@types/node": "^22.14.0",
-    "@types/react": "~19.2.0",
-    "expo": "57.0.25",
-    "expo-module-scripts": "56.0.3"
+    "@types/react": "~19.3.0",
+    "expo": "58.0.24",
+    "jest-expo": "58.0.14"
   },
   "peerDependencies": {
     "expo": "*",
     "react": "*",
     "react-native": "*"
   },
-  "gitHead": "9349d1457178dd9cccb8bdd3aed47473c49134e1",
+  "jest": {
+    "preset": "@expo/internal-scripts"
+  },
+  "title": "Expo Video",
   "scripts": {
-    "build": "expo-module build",
+    "precompile-ios": "et prebuild-package-for-publish",
+    "precompile-android": "et prebuild-android-package-for-publish",
+    "build": "pnpm run build:lib && pnpm run build:plugin",
+    "build:lib": "expo-build src",
+    "build:plugin": "expo-build --base plugin cjs:src",
     "clean": "expo-module clean",
-    "lint": "expo-module lint",
-    "test": "expo-module test",
-    "expo-module": "expo-module"
+    "lint": "oxlint --config oxlint.config.mjs .",
+    "format": "expo-module format",
+    "test": "jest",
+    "depscheck": "expo-module depscheck",
+    "typecheck": "tsc -b tsconfig.all.json"
   }
 }

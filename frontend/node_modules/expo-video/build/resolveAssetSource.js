@@ -1,3 +1,4 @@
-import resolveAssetSource from 'react-native/Libraries/Image/resolveAssetSource';
-export default resolveAssetSource;
+import { Image } from 'react-native';
+export default Image.resolveAssetSource;
+
 //# sourceMappingURL=resolveAssetSource.js.map
